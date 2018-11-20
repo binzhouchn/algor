@@ -45,8 +45,9 @@ author: 周彬
 
 待补充
 
-**chapter_9 xxx**
+**chapter_9 动态规划(Dynamic Programming)**
 
+待补充
 
 ---
 
