@@ -39,6 +39,7 @@ class Solution:
         end = len(nums) - 1
         while start + 1 < end:
             mid = int((end - start) / 2 + start)
+            # mid = (end - start) >> 1 + start
             if target == nums[mid]:
                 end = mid
             elif target < nums[mid]:
