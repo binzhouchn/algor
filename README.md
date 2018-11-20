@@ -1,3 +1,14 @@
+---
+title:  "编程-lintcode"
+layout: post
+categories: python 编程-lintcode
+tags:  python
+author: binzhou
+---
+
+* content
+{:toc}
+
 # 数据结构与算法(python)
 
 
