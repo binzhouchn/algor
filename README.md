@@ -1,7 +1,10 @@
 # 数据结构与算法(python)
 
-## chapter 2
+## chapter_2
 
-二分法
+二分法（Binary Search）
 
-根据chapter2的pdf来，刷一遍所有的热门题型
+[二分查找](http://www.lintcode.com/problem/first-position-of-target/)
+
+
+
