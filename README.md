@@ -1,10 +1,9 @@
 # 数据结构与算法(python)
 
-[代码](coding.py)
+## chapter_2 二分法(Binary Search)
 
-## chapter_2
+## chapter_3 二叉树与分治法(Binary Tree & Divide Conquer)
 
-二分法（Binary Search）
 
 [二分查找问题描述](http://www.lintcode.com/problem/first-position-of-target/)<br>
 [第一个错误的代码版本](https://www.lintcode.com/problem/first-bad-version/description)<br>
