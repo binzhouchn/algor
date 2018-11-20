@@ -1,9 +1,9 @@
 ---
-title:  "编程-lintcode"
+title:  "编程-LintCode"
 layout: post
 categories: python 编程-lintcode
 tags:  python
-author: binzhou
+author: 周彬
 ---
 
 * content
