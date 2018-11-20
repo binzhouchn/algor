@@ -17,11 +17,20 @@
 
 待补充
 
-**chapter_5 xxx**
+**chapter_5 深度优先搜索(Depth First Search)**
 
 待补充
 
-**chapter_6 xxx**
+**chapter_6 链表与数组(Linked List & Array)**
+
+待补充
+
+**chapter_7 两根指针(Two Pointers)**
+
+待补充
+
+**chapter_8 xxx**
+
 
 ---
 
