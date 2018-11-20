@@ -19,6 +19,7 @@ author: 周彬
  - [在大数组中查找](#在大数组中查找)
  - [寻找旋转排序数组中的最小值](#寻找旋转排序数组中的最小值)
  - [搜索二维矩阵](#搜索二维矩阵)
+ - [搜索二维矩阵 II](#搜索二维矩阵2)
 
 
 **chapter_3 二叉树与分治法(Binary Tree & Divide Conquer)**
@@ -204,4 +205,32 @@ class Solution:
             else:
                 row -= 1
         return False
+```
+
+### 搜索二维矩阵2
+
+[搜索二维矩阵 II](https://www.lintcode.com/problem/search-a-2d-matrix-ii/description)<br>
+```python
+class Solution:
+    """
+    @param matrix: A list of lists of integers
+    @param target: An integer you want to search in matrix
+    @return: An integer indicate the total occurrence of target in the given matrix
+    """
+    def searchMatrix(self, matrix, target):
+        # write your code here
+        if not matrix or len(matrix) == 0:
+            return 0
+        col = 0
+        row = len(matrix) - 1
+        res = 0
+        while col < len(matrix[0]) and row > -1:
+            if matrix[row][col] == target:
+                res += 1
+                row -= 1
+            elif matrix[row][col] < target:
+                col += 1
+            else:
+                row -= 1
+        return res
 ```
