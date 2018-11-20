@@ -1,11 +1,11 @@
 # 数据结构与算法(python)
 
-### chapter_2 二分法(Binary Search)
+**chapter_2 二分法(Binary Search)**
 
  - [二分查找](#二分查找)
 
 
-### chapter_3 二叉树与分治法(Binary Tree & Divide Conquer)
+**chapter_3 二叉树与分治法(Binary Tree & Divide Conquer)**
 
 
 ---
