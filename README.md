@@ -20,6 +20,7 @@ author: 周彬
  - [寻找旋转排序数组中的最小值](#寻找旋转排序数组中的最小值)
  - [搜索二维矩阵](#搜索二维矩阵)
  - [搜索二维矩阵 II](#搜索二维矩阵2)
+ - [搜索区间](#搜索区间)
 
 
 **chapter_3 二叉树与分治法(Binary Tree & Divide Conquer)**
@@ -233,4 +234,11 @@ class Solution:
             else:
                 row -= 1
         return res
+```
+
+### 搜索区间
+
+[搜索区间](https://www.lintcode.com/problem/search-for-a-range/description)
+```python
+
 ```
