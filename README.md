@@ -415,5 +415,33 @@ class Solution:
 
 [x的平方根](https://www.lintcode.com/problem/sqrtx/)<br>
 ```python
+class Solution:
+    """
+    @param x: An integer
+    @return: The sqrt of x
+    """
+    def sqrt(self, x):
+        # write your code here
+        if x < 1:
+            return 0
+        if x == 1:
+            return 1
+        start = 1
+        end = x
+        while start + 1 < end:
+            mid = ((end - start) >> 1) + start
+            if mid * mid <= x and (mid+1)*(mid+1) >= x:
+                return mid
+            elif mid * mid > x:
+                end = mid
+            else:
+                start = mid
+        return 0
+```
+
+### 木材加工
+
+[木材加工](https://www.lintcode.com/problem/wood-cut/description)<br>
+```python
 
 ```
