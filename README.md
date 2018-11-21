@@ -72,7 +72,7 @@ class Solution:
         while start + 1 < end:
             # 细节，不写成(start + end) / 2：为了防止溢出2^32
             mid = int((end - start) / 2 + start)
-            # mid = (end - start) >> 1 + start
+            # mid = (end - start) >> 1 + start # 可能会陷入死循环
             if target == nums[mid]:
                 end = mid
             elif target < nums[mid]:
@@ -240,5 +240,41 @@ class Solution:
 
 [搜索区间](https://www.lintcode.com/problem/search-for-a-range/description)
 ```python
-
+class Solution:
+    """
+    @param A : a list of integers
+    @param target : an integer to be searched
+    @return : a list of length 2, [index1, index2]
+    """
+    def searchRange(self, A, target):
+        if not A or len(A) == 0:
+            return [-1, -1]
+        
+        start, end = 0, len(A) - 1
+        while start + 1 < end:
+            mid = int((end - start) / 2 + start)
+            if A[mid] < target:
+                start = mid
+            else:
+                end = mid
+        
+        if A[start] == target:
+            leftBound = start
+        elif A[end] == target:
+            leftBound = end
+        else:
+            return [-1, -1]
+        
+        start, end = leftBound, len(A) - 1
+        while start + 1 < end:
+            mid = int((end - start) / 2 + start)
+            if A[mid] <= target:
+                start = mid
+            else:
+                end = mid
+        if A[end] == target:
+            rightBound = end
+        else:
+            rightBound = start
+        return [leftBound, rightBound]
 ```
