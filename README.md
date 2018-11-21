@@ -21,6 +21,7 @@ author: 周彬
  - [搜索二维矩阵](#搜索二维矩阵)
  - [搜索二维矩阵 II](#搜索二维矩阵2)
  - [搜索区间](#搜索区间)
+ - [目标出现总和](#目标出现总和)
 
 
 **chapter_3 二叉树与分治法(Binary Tree & Divide Conquer)**
@@ -239,6 +240,7 @@ class Solution:
 ### 搜索区间
 
 [搜索区间](https://www.lintcode.com/problem/search-for-a-range/description)
+思路：先搜索target最左边的值，然后再把这个值赋给start重新搜索最右边的值<br>
 ```python
 class Solution:
     """
