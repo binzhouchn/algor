@@ -285,6 +285,30 @@ class Solution:
 ### 山脉序列中的最大值
 
 [山脉序列中的最大值](https://www.lintcode.com/problem/maximum-number-in-mountain-sequence/description)<br>
+时间复杂度O(n)<br>
+```python
+class Solution:
+    """
+    @param nums: a mountain sequence which increase firstly and then decrease
+    @return: then mountain top
+    """
+    def mountainSequence(self, nums):
+        # write your code here
+        if not nums or len(nums) == 0:
+            return -9999
+        if len(nums) == 1:
+            return nums[0]
+        i = 0
+        j = 1
+        while j < len(nums):
+            if nums[i] > nums[j]:
+                return nums[i]
+            i += 1
+            j += 1
+        return -9999
+```
+
+时间复杂度O(logn)<br>
 ```python
 
 ```
