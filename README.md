@@ -22,6 +22,7 @@ author: 周彬
  - [搜索二维矩阵 II](#搜索二维矩阵2)
  - [搜索区间](#搜索区间)
  - [目标出现总和](#目标出现总和)
+ - [山脉序列中的最大值](#山脉序列中的最大值)
 
 
 **chapter_3 二叉树与分治法(Binary Tree & Divide Conquer)**
@@ -279,4 +280,11 @@ class Solution:
         else:
             rightBound = start
         return [leftBound, rightBound]
+```
+
+### 山脉序列中的最大值
+
+[山脉序列中的最大值](https://www.lintcode.com/problem/maximum-number-in-mountain-sequence/description)<br>
+```python
+
 ```
