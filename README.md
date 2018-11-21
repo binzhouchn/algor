@@ -346,3 +346,36 @@ class Solution:
         else:
             return nums[end]
 ```
+
+### 寻找峰值
+
+[寻找峰值](https://www.lintcode.com/problem/find-peak-element/description)<br>
+```python
+class Solution:
+    """
+    @param A: An integers array.
+    @return: return any of peek positions.
+    """
+    def findPeak(self, A):
+        # write your code here
+        if not A or len(A) < 3:
+            return -1
+        start = 0
+        end = len(A) - 1
+        while start + 1 < end:
+            mid = ((end - start) >> 1) + start
+            if A[mid] > A[mid - 1] and A[mid] > A[mid + 1]:
+                return mid
+            elif A[mid] > A[mid - 1] and A[mid] < A[mid + 1]:
+                start = mid
+            else:
+                end = mid
+        return -1
+```
+
+### 搜索旋转排序数组
+
+[搜索旋转排序数组](https://www.lintcode.com/problem/search-in-rotated-sorted-array/description)<br>
+```python
+
+```
