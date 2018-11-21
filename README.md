@@ -476,6 +476,7 @@ class Solution:
 ### 书籍复印
 
 [书籍复印](https://www.lintcode.com/problem/copy-books/description)<br>
+一句话描述题意：将数组切分为k个子数组，让数组和最大的最小<br>
 ```python
 
 ```
