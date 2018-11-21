@@ -443,5 +443,32 @@ class Solution:
 
 [木材加工](https://www.lintcode.com/problem/wood-cut/description)<br>
 ```python
-
+class Solution:
+    """
+    @param L: Given n pieces of wood with length L[i]
+    @param k: An integer
+    @return: The maximum length of the small pieces
+    """
+    def woodCut(self, L, k):
+        # write your code here
+        if not L or len(L) == 0 or k < 1:
+            return 0
+        start = 1
+        end = max(L)
+        while start + 1 < end:
+            mid = ((end - start) >> 1) + start
+            r = sum([x//mid for x in L])
+            if r == k:
+                start = mid
+            elif r > k:
+                start = mid
+            else:
+                end = mid
+        print(start)
+        print(end)
+        if sum([x//end for x in L]) >= k:
+            return end
+        if sum([x//start for x in L]) >= k:
+            return start
+        return 0
 ```
