@@ -486,5 +486,37 @@ class Solution:
 时间复杂度 O(nlog(sum))O(nlog(sum)) 是该问题时间复杂度上的最优解法
 ```
 ```python
-
+class Solution:
+    """
+    @param pages: an array of integers
+    @param k: An integer
+    @return: an integer
+    """
+    def copyBooks(self, pages, k):
+        # write your code here
+        if not pages or len(pages) == 0 or k < 1:
+            return 0
+        start = max(pages)
+        end = sum(pages)
+        if k == 1:
+            return end
+        while start + 1 < end:
+            mid = ((end - start) >> 1) + start
+            if self.check(pages, mid) <= k:
+                end = mid
+            else:
+                start = mid
+        if self.check(pages, start) <= k:
+            return start
+        return end
+        
+    def check(self, pages, time_limit):
+        count = 1
+        cul_pages = 0
+        for p in pages:
+            if cul_pages + p > time_limit:
+                count += 1
+                cul_pages = 0
+            cul_pages += p
+        return count
 ```
