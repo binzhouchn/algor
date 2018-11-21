@@ -86,7 +86,7 @@ class Solution:
         while start + 1 < end:
             # 细节，不写成(start + end) / 2：为了防止溢出2^32
             mid = int((end - start) / 2 + start)
-            # mid = ((end - start) >> 1) + start #python运算符和优先级
+            # mid = ((end - start) >> 1) + start #注意python运算符和优先级
             if target == nums[mid]:
                 end = mid
             elif target < nums[mid]:
