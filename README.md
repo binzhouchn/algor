@@ -477,6 +477,14 @@ class Solution:
 
 [书籍复印](https://www.lintcode.com/problem/copy-books/description)<br>
 一句话描述题意：将数组切分为k个子数组，让数组和最大的最小<br>
+```
+令狐冲解法：
+使用九章算法强化班中讲过的基于答案值域的二分法。
+答案的范围在 max(pages)~sum(pages) 之间，每次二分到一个时间 time_limit 的时候，用贪心法从左到右扫描一下 pages，看看需要多少个人来完成抄袭。
+如果这个值 <= k，那么意味着大家花的时间可能可以再少一些，如果 > k 则意味着人数不够，需要降低工作量。
+
+时间复杂度 O(nlog(sum))O(nlog(sum)) 是该问题时间复杂度上的最优解法
+```
 ```python
 
 ```
