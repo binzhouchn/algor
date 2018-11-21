@@ -29,7 +29,7 @@ author: 周彬
 第二境界（二分位置 之 Half half）
 
  - [寻找峰值](#寻找峰值)
- - [搜索旋转排序数组](#搜索旋转排序数组)
+ - [搜索旋转排序数组star](#搜索旋转排序数组)
  
 第三境界（二分答案）
 
@@ -377,5 +377,36 @@ class Solution:
 
 [搜索旋转排序数组](https://www.lintcode.com/problem/search-in-rotated-sorted-array/description)<br>
 ```python
-
+class Solution:
+    """
+    @param A: an integer rotated sorted array
+    @param target: an integer to be searched
+    @return: an integer
+    """
+    def search(self, A, target):
+        # write your code here
+        if not A or len(A) == 0:
+            return -1
+        start = 0
+        end = len(A) - 1
+        while start + 1 < end:
+            mid = ((end - start) >> 1) + start
+            if A[mid] == target:
+                return mid
+            # 画图 看纸质ppt
+            if A[start] < A[mid]:
+                if A[start] <= target and target <= A[mid]:
+                    end = mid
+                else:
+                    start = mid
+            else:
+                if A[mid] <= target and target <= A[end]:
+                    start = mid
+                else:
+                    end = mid
+        if A[start] == target:
+            return start
+        if A[end] == target:
+            return end
+        return -1
 ```
