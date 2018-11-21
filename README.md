@@ -410,3 +410,10 @@ class Solution:
             return end
         return -1
 ```
+
+### x的平方根
+
+[x的平方根](https://www.lintcode.com/problem/sqrtx/)<br>
+```python
+
+```
