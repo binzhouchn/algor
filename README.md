@@ -472,3 +472,10 @@ class Solution:
             return start
         return 0
 ```
+
+### 书籍复印
+
+[书籍复印](https://www.lintcode.com/problem/copy-books/description)<br>
+```python
+
+```
