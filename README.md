@@ -310,5 +310,27 @@ class Solution:
 
 时间复杂度O(logn)<br>
 ```python
-
+class Solution:
+    """
+    @param nums: a mountain sequence which increase firstly and then decrease
+    @return: then mountain top
+    """
+    def mountainSequence(self, nums):
+        # write your code here
+        if not nums or len(nums) == 0:
+            return -9999
+        if len(nums) == 1:
+            return nums[0]
+        start = 0
+        end = len(nums) - 1
+        while start + 1 < end:
+            mid = ((end - start) >> 1) + start
+            if nums[mid] < nums[mid + 1]:
+                start = mid
+            else:
+                end = mid
+        if nums[start] > nums[end]:
+            return nums[start]
+        else:
+            return nums[end]
 ```
