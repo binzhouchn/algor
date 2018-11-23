@@ -36,6 +36,7 @@ author: 周彬
  - [x的平方根](#x的平方根)
  - [木材加工](#木材加工)
  - [书籍复印](#书籍复印)
+ - [两个整数相除](#两个整数相除)
 
 **chapter_3 二叉树与分治法(Binary Tree & Divide Conquer)**
 
@@ -521,4 +522,11 @@ class Solution:
                 cul_pages = 0
             cul_pages += p
         return count
+```
+
+### 两个整数相除
+
+[两个整数相除](https://www.lintcode.com/problem/divide-two-integers/description)
+```python
+
 ```
