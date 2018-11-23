@@ -39,7 +39,9 @@ author: 周彬
 
 **chapter_3 二叉树与分治法(Binary Tree & Divide Conquer)**
 
-待补充
+ - [二叉树的前序遍历](#二叉树的前序遍历)
+ - [二叉树的中序遍历](#二叉树的中序遍历)
+ - [二叉树的后序遍历](#二叉树的后序遍历)
 
 **chapter_4 宽度优先搜索(Breadth First Search)**
 
