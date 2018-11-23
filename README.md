@@ -528,5 +528,31 @@ class Solution:
 
 [两个整数相除](https://www.lintcode.com/problem/divide-two-integers/description)
 ```python
-
+class Solution:
+    """
+    @param dividend: the dividend
+    @param divisor: the divisor
+    @return: the result
+    """
+    def divide(self, dividend, divisor):
+        # write your code here
+        INT_MAX = 2147483647
+        if divisor == 0:
+            return INT_MAX
+        if dividend == 0:
+            return 0
+        neg = (dividend > 0 and divisor < 0) or (dividend < 0 and divisor > 0)
+        dividend, divisor = abs(dividend), abs(divisor)
+        res, shift = 0, 31
+        while shift >= 0:
+            # 100 >= (9<<3)才会进到if里面
+            if dividend >= (divisor << shift):
+                dividend -= (divisor << shift)
+                res += (1 << shift)
+            shift -= 1
+        if neg:
+            res = -res
+        if res > INT_MAX:
+            return INT_MAX
+        return res
 ```
