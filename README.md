@@ -648,7 +648,7 @@ class Solution:
 
 [二叉树的后序遍历](https://www.lintcode.com/problem/binary-tree-postorder-traversal/description)<br>
 ```python
-# version1 Recursion(Divide & Conquer)
+# version1 Divide & Conquer
 class Solution:
     """
     @param root: A Tree
@@ -660,7 +660,7 @@ class Solution:
             return []
         return self.postorderTraversal(root.left) + self.postorderTraversal(root.right) + [root.val]
 
-# version2 Recursion(Traverse)
+# version2 Traverse
 class Solution:
     """
     @param root: A Tree
@@ -685,5 +685,5 @@ class Solution:
 
 [二叉树的最大深度](https://www.lintcode.com/problem/maximum-depth-of-binary-tree/description)<br>
 ```python
-
+# Divide & Conquer
 ```
