@@ -45,6 +45,7 @@ author: 周彬
  - [二叉树的后序遍历](#二叉树的后序遍历)
  - [二叉树的最大深度](#二叉树的最大深度)
  - [二叉树的所有路径](#二叉树的所有路径)
+ - [最小子树](#最小子树)
 
 **chapter_4 宽度优先搜索(Breadth First Search)**
 
@@ -731,5 +732,28 @@ class Solution:
 
 [最小子树](https://www.lintcode.com/problem/minimum-subtree/description)<br>
 ```python
-
+class Solution:
+    """
+    @param root: the root of binary tree
+    @return: the root of the minimum subtree
+    """
+    def findSubtree(self, root):
+        # write your code here
+        if root is None:
+            return None
+        self.min_weight = sys.maxsize
+        self.res = None
+        self.helper(root)
+        return self.res
+    def helper(self, root):
+        if root is None:
+            return 0
+        left_weight = self.helper(root.left)
+        right_weight = self.helper(root.right)
+        
+        tmp_sum = left_weight + right_weight + root.val
+        if tmp_sum < self.min_weight:
+            self.min_weight = tmp_sum
+            self.res = root
+        return tmp_sum
 ```
