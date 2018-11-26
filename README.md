@@ -705,5 +705,24 @@ class Solution:
 
 [二叉树的所有路径](https://www.lintcode.com/problem/binary-tree-paths/description)<br>
 ```python
-
+class Solution:
+    """
+    @param root: the root of the binary tree
+    @return: all root-to-leaf paths
+    """
+    def binaryTreePaths(self, root):
+        # write your code here
+        if root is None:
+            return []
+        if root.left is None and root.right is None:
+            return [str(root.val)]
+        left = self.binaryTreePaths(root.left)
+        right = self.binaryTreePaths(root.right)
+        
+        paths = []
+        for p in left:
+            paths.append(str(root.val) + '->' + p)
+        for p in right:
+            paths.append(str(root.val) + '->' + p)
+        return paths
 ```
