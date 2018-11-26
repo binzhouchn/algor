@@ -44,6 +44,7 @@ author: 周彬
  - [二叉树的中序遍历](#二叉树的中序遍历)
  - [二叉树的后序遍历](#二叉树的后序遍历)
  - [二叉树的最大深度](#二叉树的最大深度)
+ - [二叉树的所有路径](#二叉树的所有路径)
 
 **chapter_4 宽度优先搜索(Breadth First Search)**
 
@@ -686,5 +687,23 @@ class Solution:
 [二叉树的最大深度](https://www.lintcode.com/problem/maximum-depth-of-binary-tree/description)<br>
 ```python
 # Divide & Conquer
+class Solution:
+    """
+    @param root: The root of binary tree.
+    @return: An integer
+    """
+    def maxDepth(self, root):
+        # write your code here
+        if root is None:
+            return 0
+        left = self.maxDepth(root.left)
+        right = self.maxDepth(root.right)
+        return max(left, right) + 1
+```
+
+### 二叉树的所有路径
+
+[二叉树的所有路径](https://www.lintcode.com/problem/binary-tree-paths/description)<br>
+```python
 
 ```
