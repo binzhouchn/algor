@@ -605,7 +605,7 @@ class Solution:
         self.helper(root.left, res)
         self.helper(root.right, res)
 
-# version3 Non-Recursion（后期学到stack时再看看）
+# version3 Non-Recursion
 class Solution:
     """
     @param root: The root of binary tree.
