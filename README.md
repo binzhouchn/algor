@@ -609,4 +609,28 @@ class Solution:
         return self.inorderTraversal(root.left) + [root.val] + self.inorderTraversal(root.right)
 ```
 
+### 二叉树的后序遍历
+
+[二叉树的后序遍历](https://www.lintcode.com/problem/binary-tree-postorder-traversal/description)<br>
+```python
+class Solution:
+    """
+    @param root: A Tree
+    @return: Postorder in ArrayList which contains node values.
+    """
+    def postorderTraversal(self, root):
+        # write your code here
+        res = []
+        if root is None:
+            return res
+        self.helper(root, res)
+        return res
+    def helper(self, root, res):
+        if root is None:
+            return
+        self.helper(root.left, res)
+        self.helper(root.right, res)
+        res.append(root.val)
+```
+
 ### 
