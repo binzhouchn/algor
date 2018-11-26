@@ -593,4 +593,20 @@ class Solution:
         self.helper(root.right, res)
 ```
 
+### 二叉树的中序遍历
+
+[二叉树的中序遍历](https://www.lintcode.com/problem/binary-tree-inorder-traversal/description)<br>
+```python
+class Solution:
+    """
+    @param root: A Tree
+    @return: Inorder in ArrayList which contains node values.
+    """
+    def inorderTraversal(self, root):
+        # write your code here
+        if root is None:
+            return []
+        return self.inorderTraversal(root.left) + [root.val] + self.inorderTraversal(root.right)
+```
+
 ### 
