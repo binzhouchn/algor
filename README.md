@@ -639,6 +639,7 @@ class Solution:
         # write your code here
         if root is None:
             return []
+        # 左根右
         return self.inorderTraversal(root.left) + [root.val] + self.inorderTraversal(root.right)
 ```
 
@@ -646,6 +647,19 @@ class Solution:
 
 [二叉树的后序遍历](https://www.lintcode.com/problem/binary-tree-postorder-traversal/description)<br>
 ```python
+# version1 Recursion(Divide & Conquer)
+class Solution:
+    """
+    @param root: A Tree
+    @return: Postorder in ArrayList which contains node values.
+    """
+    def postorderTraversal(self, root):
+        # write your code here
+        if root is None:
+            return []
+        return self.postorderTraversal(root.left) + self.postorderTraversal(root.right) + [root.val]
+
+# version2 Recursion(Traverse)
 class Solution:
     """
     @param root: A Tree
