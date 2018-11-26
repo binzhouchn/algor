@@ -570,7 +570,20 @@ class TreeNode:
         self.val = val
         self.left, self.right = None, None
 """
+# version1 Recursion(Divide & Conquer)
+class Solution:
+    """
+    @param root: A Tree
+    @return: Preorder in ArrayList which contains node values.
+    """
+    def preorderTraversal(self, root):
+        # write your code here
+        if root is None:
+            return []
+        # 根左右
+        return [root.val] + self.preorderTraversal(root.left) + self.preorderTraversal(root.right)
 
+# version2 Recursion(Traverse)
 class Solution:
     """
     @param root: A Tree
@@ -591,12 +604,32 @@ class Solution:
         res.append(root.val)
         self.helper(root.left, res)
         self.helper(root.right, res)
-```
 
+# version3 Non-Recursion（后期学到stack时再看看）
+class Solution:
+    """
+    @param root: The root of binary tree.
+    @return: Preorder in list which contains node values.
+    """
+    def preorderTraversal(self, root):
+        if root is None:
+            return []
+        stack = [root]
+        preorder = []
+        while stack:
+            node = stack.pop()
+            preorder.append(node.val)
+            if node.right:
+                stack.append(node.right)
+            if node.left:
+                stack.append(node.left)
+        return preorder
+```
 ### 二叉树的中序遍历
 
 [二叉树的中序遍历](https://www.lintcode.com/problem/binary-tree-inorder-traversal/description)<br>
 ```python
+# Divide & Conquer
 class Solution:
     """
     @param root: A Tree
