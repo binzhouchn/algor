@@ -556,3 +556,41 @@ class Solution:
             return INT_MAX
         return res
 ```
+
+--- 
+
+### 二叉树的前序遍历
+
+[二叉树的前序遍历](https://www.lintcode.com/problem/binary-tree-preorder-traversal/description)<br>
+```python
+"""
+Definition of TreeNode:
+class TreeNode:
+    def __init__(self, val):
+        self.val = val
+        self.left, self.right = None, None
+"""
+
+class Solution:
+    """
+    @param root: A Tree
+    @return: Preorder in ArrayList which contains node values.
+    """
+    def preorderTraversal(self, root):
+        # write your code here
+        res = []
+        if root is None:
+            return res
+        self.helper(root, res)
+        
+        return res
+    
+    def helper(self, root, res):
+        if root is None:
+            return 
+        res.append(root.val)
+        self.helper(root.left, res)
+        self.helper(root.right, res)
+```
+
+### 
