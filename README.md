@@ -43,6 +43,7 @@ author: 周彬
  - [二叉树的前序遍历](#二叉树的前序遍历)
  - [二叉树的中序遍历](#二叉树的中序遍历)
  - [二叉树的后序遍历](#二叉树的后序遍历)
+ - [二叉树的最大深度](#二叉树的最大深度)
 
 **chapter_4 宽度优先搜索(Breadth First Search)**
 
@@ -680,4 +681,9 @@ class Solution:
         res.append(root.val)
 ```
 
-### 
+### 二叉树的最大深度
+
+[二叉树的最大深度](https://www.lintcode.com/problem/maximum-depth-of-binary-tree/description)<br>
+```python
+
+```
