@@ -50,6 +50,7 @@ author: 周彬
  - [二叉树的最大深度](#二叉树的最大深度)
  - [二叉树的所有路径](#二叉树的所有路径)
  - [最小子树](#最小子树)
+ - [平衡二叉树](#平衡二叉树)
 
 **chapter_4 宽度优先搜索(Breadth First Search)**
 
@@ -760,4 +761,11 @@ class Solution:
             self.min_weight = tmp_sum
             self.res = root
         return tmp_sum
+```
+
+### 平衡二叉树
+
+[平衡二叉树](https://www.lintcode.com/problem/balanced-binary-tree/description)<br>
+```python
+
 ```
