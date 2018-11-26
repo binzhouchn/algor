@@ -726,3 +726,10 @@ class Solution:
             paths.append(str(root.val) + '->' + p)
         return paths
 ```
+
+### 最小子树
+
+[最小子树](https://www.lintcode.com/problem/minimum-subtree/description)<br>
+```python
+
+```
