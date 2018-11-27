@@ -54,6 +54,7 @@ author: 周彬
  - [具有最大平均数的子树](#具有最大平均数的子树)
  - [将二叉树拆成链表](#将二叉树拆成链表)
  - [Lowest Common Ancestor of a Binary Tree](#lowest_common_ancestor_of_a_binary_tree)
+ - [二叉树最长连续序列](#二叉树最长连续序列)
  
 
 **chapter_4 宽度优先搜索(Breadth First Search)**
@@ -909,4 +910,11 @@ class Solution:
         if right:
             return right
         return None
+```
+
+### 二叉树最长连续序列
+
+[二叉树最长连续序列](https://www.lintcode.com/problem/binary-tree-longest-consecutive-sequence/description)<br>
+```python
+
 ```
