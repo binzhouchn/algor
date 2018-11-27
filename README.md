@@ -769,7 +769,28 @@ class Solution:
 
 [平衡二叉树](https://www.lintcode.com/problem/balanced-binary-tree/description)<br>
 ```python
-
+class Solution:
+    """
+    @param root: The root of binary tree.
+    @return: True if this Binary tree is Balanced, or false.
+    """
+    def isBalanced(self, root):
+        # write your code here
+        if root is None:
+            return True
+        isbal, _ = self.helper(root)
+        return isbal
+        
+    def helper(self, root):
+        if root is None:
+            return True, 0
+        isbal_left, height_left = self.helper(root.left)
+        if not isbal_left:
+            return False, 0
+        isbal_right, height_right = self.helper(root.right)
+        if not isbal_right:
+            return False, 0
+        return abs(height_left - height_right) <= 1, max(height_left, height_right) + 1
 ```
 
 ### 具有最大平均数的子树
