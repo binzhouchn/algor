@@ -738,6 +738,7 @@ class Solution:
 
 [最小子树](https://www.lintcode.com/problem/minimum-subtree/description)<br>
 ```python
+# Traverse + Divide Conquer
 class Solution:
     """
     @param root: the root of binary tree
