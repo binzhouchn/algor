@@ -927,6 +927,7 @@ class Solution:
     def helper(self, root, parent, lengthwithoutroot):
         if root is None:
             return 0
+        # 加上root以后的看能形成的长度
         length = lengthwithoutroot + 1 if (parent is not None and parent.val + 1 == root.val) else 1
         left = self.helper(root.left, root, length)
         right = self.helper(root.right, root, length)
