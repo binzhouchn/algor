@@ -52,6 +52,7 @@ author: 周彬
  - [最小子树](#最小子树)
  - [平衡二叉树](#平衡二叉树)
  - [具有最大平均数的子树](#具有最大平均数的子树)
+ - [将二叉树拆成链表](#将二叉树拆成链表)
 
 **chapter_4 宽度优先搜索(Breadth First Search)**
 
@@ -797,5 +798,81 @@ class Solution:
 
 [具有最大平均数的子树](https://www.lintcode.com/problem/subtree-with-maximum-average/description)<br>
 ```python
-
+class Solution:
+    """
+    @param root: the root of binary tree
+    @return: the root of the maximum average of subtree
+    """
+    def findSubtree2(self, root):
+        # write your code here
+        if root is None:
+            return None
+        self.max_avg = -sys.maxsize
+        self.res = None
+        self.helper(root)
+        return self.res
+        
+    def helper(self, root):
+        if root is None:
+            return 0, 0
+        left_sum, left_count = self.helper(root.left)
+        right_sum, right_count = self.helper(root.right)
+        tmp_avg = (left_sum + right_sum + root.val) / (left_count + right_count + 1)
+        if tmp_avg > self.max_avg:
+            self.max_avg = tmp_avg
+            self.res = root
+        return left_sum + right_sum + root.val, left_count + right_count + 1
 ```
+
+### 将二叉树拆成链表
+
+[将二叉树拆成链表](https://www.lintcode.com/problem/flatten-binary-tree-to-linked-list/description)<br>
+```python
+# 我的思路：用前序遍历一遍node存在list中，然后依次连接left=None,right=next
+# 需要使用额外的空间耗费(挑战)
+class Solution:
+    """
+    @param root: a TreeNode, the root of the binary tree
+    @return: nothing
+    """
+    res = []
+    def flatten(self, root):
+        # write your code here
+        if root is None:
+            return
+        self.helper(root)
+        for i in range(len(self.res)-1):
+            self.res[i].left = None
+            self.res[i].right = self.res[i+1]
+        root = self.res[0]
+        
+    def helper(self, root):
+        if root is None:
+            return
+        self.res.append(root)
+        self.helper(root.left)
+        self.helper(root.right)
+
+# 令狐冲老师代码（不使用额外的空间耗费）
+class Solution:
+    last_node = None
+    
+    """
+    @param root: a TreeNode, the root of the binary tree
+    @return: nothing
+    """
+    def flatten(self, root):
+        if root is None:
+            return
+        
+        if self.last_node is not None:
+            self.last_node.left = None
+            self.last_node.right = root
+            
+        self.last_node = root
+        right = root.right
+        self.flatten(root.left)
+        self.flatten(right)
+```
+
+### 
