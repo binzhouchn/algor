@@ -53,6 +53,8 @@ author: 周彬
  - [平衡二叉树](#平衡二叉树)
  - [具有最大平均数的子树](#具有最大平均数的子树)
  - [将二叉树拆成链表](#将二叉树拆成链表)
+ - [Lowest Common Ancestor of a Binary Tree](#lowest_common_ancestor_of_a_binary_tree)
+ 
 
 **chapter_4 宽度优先搜索(Breadth First Search)**
 
