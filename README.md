@@ -941,7 +941,29 @@ class Solution:
 
 [二叉树的路径和](https://www.lintcode.com/problem/binary-tree-path-sum/description)<br>
 ```python
-
+class Solution:
+    """
+    @param: root: the root of binary tree
+    @param: target: An integer
+    @return: all valid paths
+    """
+    res = []
+    def binaryTreePathSum(self, root, target):
+        # write your code here
+        if root is None:
+            return []
+        path = []
+        self.helper(root, path, target)
+        return self.res
+    def helper(self, root, path, target):
+        if root is None:
+            return []
+        path.append(root.val)
+        if root.left is None and root.right is None:
+            if sum(path) == target:
+                self.res.append(path.copy())
+        self.helper(root.left, path.copy(), target)
+        self.helper(root.right, path.copy(), target)
 ```
 
 ### 二叉树的路径和2
