@@ -57,6 +57,7 @@ author: 周彬
  - [二叉树最长连续序列](#二叉树最长连续序列)
  - [二叉树的路径和](#二叉树的路径和)
  - [二叉树的路径和 II](#二叉树的路径和2)
+ - [验证二叉查找树](#验证二叉查找树)
  
 
 **chapter_4 宽度优先搜索(Breadth First Search)**
@@ -994,6 +995,37 @@ class Solution:
         self.helper(root.left, target, path, l+1)
         self.helper(root.right, target, path, l+1)
         path.pop()
+```
+
+### 验证二叉查找树
+
+[验证二叉查找树](https://www.lintcode.com/problem/validate-binary-search-tree/description)<br>
+```python
+class resulttype:
+    def __init__(self, isbst, max_val, min_val):
+        self.isbst = isbst
+        self.max_val = max_val
+        self.min_val = min_val
+
+class Solution:
+    """
+    @param root: The root of binary tree.
+    @return: True if the binary tree is BST, or false
+    """
+    def isValidBST(self, root):
+        # write your code here
+        res = self.helper(root)
+        return res.isbst
+    def helper(self, root):
+        if root is None:
+            return resulttype(True, -sys.maxsize, sys.maxsize)
+        left = self.helper(root.left)
+        right = self.helper(root.right)
+        if (not left.isbst or not right.isbst):
+            return resulttype(False, 0, 0)
+        if (left is not None and left.max_val >= root.val) or (right is not None and right.min_val <= root.val):
+            return resulttype(False, 0, 0)
+        return resulttype(True, max(root.val, right.max_val), min(root.val, left.min_val))
 ```
 
 ### 
