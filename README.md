@@ -881,4 +881,9 @@ class Solution:
         return root
 ```
 
-### 
+### Lowest_Common_Ancestor_of_a_Binary_Tree
+
+[Lowest Common Ancestor of a Binary Tree](https://www.lintcode.com/problem/lowest-common-ancestor-of-a-binary-tree/description)<br>
+```python
+
+```
