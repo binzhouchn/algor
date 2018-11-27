@@ -968,8 +968,10 @@ class Solution:
 
 ### 二叉树的路径和2
 
-[二叉树的路径和2]()<br>
+[二叉树的路径和2](https://www.lintcode.com/problem/binary-tree-path-sum-ii/description)<br>
+```python
 
+```
 
 ### 二叉树的路径和3
 
