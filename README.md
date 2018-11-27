@@ -854,25 +854,31 @@ class Solution:
         self.helper(root.right)
 
 # 令狐冲老师代码（不使用额外的空间耗费）
+# Divide & Conquer
 class Solution:
-    last_node = None
-    
     """
     @param root: a TreeNode, the root of the binary tree
     @return: nothing
     """
     def flatten(self, root):
+        # write your code here
         if root is None:
             return
-        
-        if self.last_node is not None:
-            self.last_node.left = None
-            self.last_node.right = root
-            
-        self.last_node = root
-        right = root.right
-        self.flatten(root.left)
-        self.flatten(right)
+        self.helper(root)
+    def helper(self, root):
+        if root is None:
+            return None
+        left = self.helper(root.left)
+        right = self.helper(root.right)
+        if left is not None:
+            left.right = root.right
+            root.right = root.left
+            root.left = None
+        if right is not None:
+            return right
+        if left is not None:
+            return left
+        return root
 ```
 
 ### 
