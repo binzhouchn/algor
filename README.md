@@ -55,6 +55,9 @@ author: 周彬
  - [将二叉树拆成链表](#将二叉树拆成链表)
  - [Lowest Common Ancestor of a Binary Tree](#lowest_common_ancestor_of_a_binary_tree)
  - [二叉树最长连续序列](#二叉树最长连续序列)
+ - [二叉树的路径和](#二叉树的路径和)
+ - [二叉树的路径和 II](#二叉树的路径和2)
+ - [二叉树的路径和 III](#二叉树的路径和3)
  
 
 **chapter_4 宽度优先搜索(Breadth First Search)**
@@ -933,3 +936,19 @@ class Solution:
         right = self.helper(root.right, root, length)
         return max(length, max(left, right))
 ```
+
+### 二叉树的路径和
+
+[二叉树的路径和](https://www.lintcode.com/problem/binary-tree-path-sum/description)<br>
+```python
+
+```
+
+### 二叉树的路径和2
+
+[二叉树的路径和2]()<br>
+
+
+### 二叉树的路径和3
+
+[二叉树的路径和3]()<br>
