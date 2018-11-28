@@ -59,6 +59,7 @@ author: 周彬
  - [二叉树的路径和 II](#二叉树的路径和2)
  - [验证二叉查找树](#验证二叉查找树)
  - [二叉查找树迭代器](#二叉查找树迭代器)
+ - [二叉树的层次遍历](#二叉树的层次遍历)
  
 
 **chapter_4 宽度优先搜索(Breadth First Search)**
@@ -1065,3 +1066,35 @@ class BSTIterator:
                 n = self.stack.pop()
         return node
 ```
+
+### 二叉树的层次遍历
+
+[二叉树的层次遍历](https://www.lintcode.com/problem/binary-tree-level-order-traversal/description)<br>
+```python
+from collections import deque
+
+class Solution:
+    """
+    @param root: A Tree
+    @return: Level order a list of lists of integer
+    """
+    def levelOrder(self, root):
+        # write your code here
+        if not root:
+            return []
+        queue = deque([root])
+        res = []
+        while queue:
+            level = []
+            for _ in range(len(queue)):
+                node = queue.popleft()
+                level.append(node.val)
+                if node.left:
+                    queue.append(node.left)
+                if node.right:
+                    queue.append(node.right)
+            res.append(level)
+        return res
+```
+
+### 
