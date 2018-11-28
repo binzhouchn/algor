@@ -60,6 +60,7 @@ author: 周彬
  - [验证二叉查找树](#验证二叉查找树)
  - [二叉查找树迭代器](#二叉查找树迭代器)
  - [二叉树的层次遍历](#二叉树的层次遍历)
+ - [前序遍历和中序遍历树构造二叉树](#前序遍历和中序遍历树构造二叉树)
  
 
 **chapter_4 宽度优先搜索(Breadth First Search)**
@@ -1094,7 +1095,14 @@ class Solution:
                 if node.right:
                     queue.append(node.right)
             res.append(level)
+        ## 二叉树的层次遍历 II
+        # return res[::-1]
         return res
 ```
 
-### 
+### 前序遍历和中序遍历树构造二叉树
+
+[前序遍历和中序遍历树构造二叉树]()<br>
+```python
+
+```
