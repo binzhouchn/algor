@@ -1104,5 +1104,33 @@ class Solution:
 
 [前序遍历和中序遍历树构造二叉树]()<br>
 ```python
-
+class Solution:
+    """
+    @param inorder: A list of integers that inorder traversal of a tree
+    @param postorder: A list of integers that postorder traversal of a tree
+    @return: Root of a tree
+    """
+    def buildTree(self, preorder, inorder):
+        # write your code here
+        if len(preorder) != len(inorder):
+            return None
+        return self.helper(inorder, 0, len(inorder)-1, preorder, 0, len(preorder)-1)
+    def helper(self, inorder, instart, inend, preorder, prestart, preend):
+        if instart > inend:
+            return None
+        root = TreeNode(preorder[prestart])
+        position = self.findPosition(inorder, instart, inend, preorder[prestart])
+        
+        root.left = self.helper(inorder, instart, position-1, preorder, prestart+1, prestart+position-instart)
+        root.right = self.helper(inorder, position+1, inend, preorder, preend+position-inend+1, preend)
+        return root
+    def findPosition(self, inorder, start, end, key):
+        i = start
+        while i <= end:
+            if inorder[i] == key:
+                return i
+            i += 1
+        return -1
 ```
+
+### 
