@@ -58,6 +58,7 @@ author: 周彬
  - [二叉树的路径和](#二叉树的路径和)
  - [二叉树的路径和 II](#二叉树的路径和2)
  - [验证二叉查找树](#验证二叉查找树)
+ - [二叉查找树迭代器](#二叉查找树迭代器)
  
 
 **chapter_4 宽度优先搜索(Breadth First Search)**
@@ -1028,5 +1029,9 @@ class Solution:
         return resulttype(True, max(root.val, right.max_val), min(root.val, left.min_val))
 ```
 
-### 
+### 二叉查找树迭代器
 
+[二叉查找树迭代器](https://www.lintcode.com/problem/binary-search-tree-iterator/description)<br>
+```python
+
+```
