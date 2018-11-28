@@ -65,7 +65,6 @@ author: 周彬
  - [Same Tree](#same_tree)
  - [翻转二叉树](#翻转二叉树)
  
-
 **chapter_4 宽度优先搜索(Breadth First Search)**
 
 待补充
@@ -1189,5 +1188,27 @@ class Solution:
 
 [翻转二叉树](https://www.lintcode.com/problem/invert-binary-tree/description)<br>
 ```python
-
+class Solution:
+    """
+    @param root: a TreeNode, the root of the binary tree
+    @return: nothing
+    """
+    def invertBinaryTree(self, root):
+        # write your code here
+        if not root:
+            return None
+        self.helper(root)
+    def helper(self, root):
+        if not root:
+            return
+        left = root.left
+        right = root.right
+        root.left = right
+        root.right = left
+        self.helper(root.left)
+        self.helper(root.right)
 ```
+
+---
+
+### 
