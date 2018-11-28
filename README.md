@@ -61,6 +61,9 @@ author: 周彬
  - [二叉查找树迭代器](#二叉查找树迭代器)
  - [二叉树的层次遍历](#二叉树的层次遍历)
  - [前序遍历和中序遍历树构造二叉树](#前序遍历和中序遍历树构造二叉树)
+ - [二叉树的最小深度](#二叉树的最小深度)
+ - [Same Tree](#same_tree)
+ - [翻转二叉树](#翻转二叉树)
  
 
 **chapter_4 宽度优先搜索(Breadth First Search)**
@@ -1133,4 +1136,58 @@ class Solution:
         return -1
 ```
 
-### 
+### 二叉树的最小深度
+
+[二叉树的最小深度](https://www.lintcode.com/problem/minimum-depth-of-binary-tree/description)<br>
+```python
+class Solution:
+    """
+    @param root: The root of binary tree
+    @return: An integer
+    """
+    min_depth = sys.maxsize
+    def minDepth(self, root):
+        # write your code here
+        if not root:
+            return 0
+        self.helper(root, 0)
+        return self.min_depth + 1
+    def helper(self, root, depth):
+        if not root:
+            return 0
+        if not root.left and not root.right:
+            if self.min_depth > depth:
+                self.min_depth = depth
+        self.helper(root.left, depth + 1)
+        self.helper(root.right, depth + 1)
+```
+
+### Same_Tree
+
+[Same Tree](https://www.lintcode.com/problem/same-tree/description)<br>
+```python
+class Solution:
+    """
+    @param a: the root of binary tree a.
+    @param b: the root of binary tree b.
+    @return: true if they are identical, or false.
+    """
+    def isIdentical(self, a, b):
+        # write your code here
+        if not a and not b:
+            return True
+        if not a or not b:
+            return False
+        if a.val != b.val:
+            return False
+        left = self.isIdentical(a.left, b.left)
+        right = self.isIdentical(a.right, b.right)
+        return left and right
+```
+
+### 翻转二叉树
+
+[翻转二叉树](https://www.lintcode.com/problem/invert-binary-tree/description)<br>
+```python
+
+```
