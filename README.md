@@ -76,6 +76,7 @@ author: 周彬
 
  - [二叉树的层次遍历](#二叉树的层次遍历)
  - [二叉树的序列化和反序列化](#二叉树的序列化和反序列化)
+ - [将二叉树按照层级转化为链表](#将二叉树按照层级转化为链表)
 
 **chapter_5 深度优先搜索(Depth First Search)**
 
@@ -1279,6 +1280,41 @@ class Solution:
                 index += 1
             isLeftchild = not isLeftchild
         return root
+```
+
+### 将二叉树按照层级转化为链表
+
+[将二叉树按照层级转化为链表](https://www.lintcode.com/problem/convert-binary-tree-to-linked-lists-by-depth/description)<br>
+```python
+from collections import deque
+
+class Solution:
+    # @param {TreeNode} root the root of binary tree
+    # @return {ListNode[]} a lists of linked list
+    def binaryTreeToLists(self, root):
+        # Write your code here
+        if not root:
+            return []
+        queue = deque([root])
+        res = []
+        while queue:
+            level = []
+            for _ in range(len(queue)):
+                node = queue.popleft()
+                level.append(ListNode(node.val))
+                if node.left:
+                    queue.append(node.left)
+                if node.right:
+                    queue.append(node.right)
+            res.append(level)
+        # 把列表中的listnode连接起来
+        for sub_arr in res:
+            if len(sub_arr) == 1:
+                continue
+            for index in range(len(sub_arr)-1):
+                sub_arr[index].next = sub_arr[index+1]
+        # return每个链表的头
+        return [x[0] for x in res]
 ```
 
 ### 
