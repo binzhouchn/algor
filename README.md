@@ -87,6 +87,9 @@ author: 周彬
  - [拓扑排序](#拓扑排序)
  - [课程表](#课程表)
 
+矩阵中的宽度优先搜索(BFS in Matrix)
+
+ - [岛屿的个数](#岛屿的个数)
 
 **chapter_5 深度优先搜索(Depth First Search)**
 
@@ -1464,4 +1467,9 @@ class Solution:
         return len(res) == numCourses
 ```
 
-### 
+### 岛屿的个数
+
+[岛屿的个数](https://www.lintcode.com/problem/number-of-islands/description)<br>
+```python
+
+```
