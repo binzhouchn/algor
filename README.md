@@ -67,6 +67,7 @@ author: 周彬
 **chapter_4 宽度优先搜索(Breadth First Search)**
 
 什么时候应该用BFS？<br>
+
 图的遍历 Traversal in Graph
 （1. 层级遍历 Level Order Traversal； 2. 由点及面 Connected Component；3. 拓扑排序 Topological Sorting）
 
