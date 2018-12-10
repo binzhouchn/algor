@@ -1511,5 +1511,40 @@ class Solution:
 
 [僵尸矩阵](https://www.lintcode.com/problem/zombie-in-matrix/description)<br>
 ```python
-
+class Solution:
+    """
+    @param grid: a 2D integer grid
+    @return: an integer
+    """
+    def zombie(self, grid):
+        # write your code here
+        n, m = len(grid), len(grid[0])
+        if n == 0 or m == 0:
+            return 0
+        q = []
+        for i in range(n):
+            for j in range(m):
+                if grid[i][j] == 1:
+                    q.append((i, j))
+        d = [[0, -1], [0, 1], [-1, 0], [1, 0]]
+        days = 0
+        while q:
+            days += 1
+            new_q = []
+            for node in q:
+                for k in range(4):
+                    x = node[0] + d[k][0]
+                    y = node[1] + d[k][1]
+                    if 0 <= x < n and 0 <= y < m and grid[x][y] == 0:
+                        grid[x][y] = 1
+                        new_q.append((x, y))
+            q = new_q
+            
+        for i in range(n):
+            for j in range(m):
+                if grid[i][j] == 0:
+                    return -1
+        return days - 1
 ```
+
+### 
