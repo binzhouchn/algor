@@ -90,6 +90,7 @@ author: 周彬
 矩阵中的宽度优先搜索(BFS in Matrix)
 
  - [岛屿的个数](#岛屿的个数)
+ - [僵尸矩阵](#僵尸矩阵)
 
 **chapter_5 深度优先搜索(Depth First Search)**
 
@@ -1506,4 +1507,9 @@ class Solution:
         return (0 <= x < n) and (0 <= y < m) and grid[x][y]
 ```
 
-### 
+### 僵尸矩阵
+
+[僵尸矩阵](https://www.lintcode.com/problem/zombie-in-matrix/description)<br>
+```python
+
+```
