@@ -82,7 +82,7 @@ author: 周彬
 
 图上的宽度优先搜索(BFS in Graph)
 
- - []()
+ - [克隆图](#克隆图)
 
 
 **chapter_5 深度优先搜索(Depth First Search)**
@@ -1322,6 +1322,47 @@ class Solution:
                 sub_arr[index].next = sub_arr[index+1]
         # return每个链表的头
         return [x[0] for x in res]
+```
+
+### 克隆图
+
+[克隆图](https://www.lintcode.com/problem/clone-graph/description)<br>
+```python
+from collections import deque
+
+class Solution:
+    """
+    @param: node: A undirected graph node
+    @return: A undirected graph node
+    """
+    def cloneGraph(self, node):
+        # write your code here
+        if not node:
+            return None
+        root = node
+        
+        nodes = self.getNodes(node)
+        
+        mapping = {}
+        for node in nodes:
+            mapping[node] = UndirectedGraphNode(node.label)
+        
+        for node in nodes:
+            new_node = mapping[node]
+            for neighbor in node.neighbors:
+                new_neighbor = mapping[neighbor]
+                new_node.neighbors.append(new_neighbor)
+        return mapping[root]
+    def getNodes(self, node):
+        queue = deque([node])
+        res = set([node])
+        while queue:
+            node = queue.popleft()
+            for neighbor in node.neighbors:
+                if neighbor not in res:
+                    res.add(neighbor)
+                    queue.append(neighbor)
+        return res
 ```
 
 ### 
