@@ -66,7 +66,18 @@ author: 周彬
  
 **chapter_4 宽度优先搜索(Breadth First Search)**
 
+什么时候应该用BFS？<br>
+图的遍历 Traversal in Graph
+ - 层级遍历 Level Order Traversal
+ - 由点及面 Connected Component
+ - 拓扑排序 Topological Sorting
+
+最短路径 Shortest Path in Simple Graph<br>
+ - 仅限简单图求最短路径
+ - 即，图中每条边长度都是1，且没有方向
+
  - [二叉树的层次遍历](#二叉树的层次遍历)
+ - [二叉树的序列化和反序列化](#二叉树的序列化和反序列化)
 
 **chapter_5 深度优先搜索(Depth First Search)**
 
@@ -1210,4 +1221,9 @@ class Solution:
         return res
 ```
 
-### 
+### 二叉树的序列化和反序列化
+
+[二叉树的序列化和反序列化](https://www.lintcode.com/problem/serialize-and-deserialize-binary-tree/description)<br>
+```python
+
+```
