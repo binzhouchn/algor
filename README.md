@@ -1399,5 +1399,38 @@ class Solution:
 
 [拓扑排序](https://www.lintcode.com/problem/topological-sorting/description)<br>
 ```python
+from collections import deque
 
+class Solution:
+    """
+    @param: graph: A list of Directed graph node
+    @return: Any topological order for the given graph.
+    """
+    def topSort(self, graph):
+        # write your code here
+        if not graph:
+            return []
+        node_map = self.get_indegree(graph)
+        
+        res = []
+        start_nodes = [x for x in graph if node_map[x] == 0]
+        queue = deque(start_nodes)
+        while queue:
+            node = queue.popleft()
+            res.append(node)
+            for neighbor in node.neighbors:
+                node_map[neighbor] -= 1
+                if node_map[neighbor] == 0:
+                    queue.append(neighbor)
+        return res
+        
+    def get_indegree(self, graph):
+        node_map = {x:0 for x in graph}
+        
+        for node in graph:
+            for neighbor in node.neighbors:
+                node_map[neighbor] += 1
+        return node_map
 ```
+
+###
