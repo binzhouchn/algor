@@ -85,6 +85,7 @@ author: 周彬
  - [克隆图](#克隆图)
  - [搜索图中节点](#搜索图中节点)
  - [拓扑排序](#拓扑排序)
+ - [课程表](#课程表)
 
 
 **chapter_5 深度优先搜索(Depth First Search)**
@@ -1433,4 +1434,34 @@ class Solution:
         return node_map
 ```
 
-###
+### 课程表
+
+[课程表](https://www.lintcode.com/problem/course-schedule/description)<br>
+```python
+class Solution:
+    """
+    @param: numCourses: a total of n courses
+    @param: prerequisites: a list of prerequisite pairs
+    @return: true if can finish all courses or false
+    """
+    def canFinish(self, numCourses, prerequisites):
+        # write your code here
+        pre = {i : [] for i in range(numCourses)}
+        degrees = [0] * numCourses
+        for i, j in prerequisites:
+            pre[j].append(i)
+            degrees[i] += 1
+        
+        q = [i for i in range(numCourses) if degrees[i] == 0]
+        res = []
+        while q:
+            node = q.pop()
+            res.append(node)
+            for i in pre[node]:
+                degrees[i] -= 1
+                if degrees[i] == 0:
+                    q.append(i)
+        return len(res) == numCourses
+```
+
+### 
