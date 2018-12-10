@@ -83,6 +83,7 @@ author: 周彬
 图上的宽度优先搜索(BFS in Graph)
 
  - [克隆图](#克隆图)
+ - [搜索图中节点](#搜索图中节点)
 
 
 **chapter_5 深度优先搜索(Depth First Search)**
@@ -1363,6 +1364,34 @@ class Solution:
                     res.add(neighbor)
                     queue.append(neighbor)
         return res
+```
+
+### 搜索图中节点
+
+[搜索图中节点](https://www.lintcode.com/problem/search-graph-nodes/description)<br>
+```python
+from collections import deque
+
+class Solution:
+    """
+    @param: graph: a list of Undirected graph node
+    @param: values: a hash mapping, <UndirectedGraphNode, (int)value>
+    @param: node: an Undirected graph node
+    @param: target: An integer
+    @return: a node
+    """
+    def searchNode(self, graph, values, node, target):
+        # write your code here
+        if not node:
+            return None
+        queue = deque([node])
+        while queue:
+            node = queue.popleft()
+            if values[node] == target:
+                return node
+            for neighbor in node.neighbors:
+                queue.append(neighbor)
+        return None
 ```
 
 ### 
