@@ -84,6 +84,7 @@ author: 周彬
 
  - [克隆图](#克隆图)
  - [搜索图中节点](#搜索图中节点)
+ - [拓扑排序](#拓扑排序)
 
 
 **chapter_5 深度优先搜索(Depth First Search)**
@@ -1394,4 +1395,9 @@ class Solution:
         return None
 ```
 
-### 
+### 拓扑排序
+
+[拓扑排序](https://www.lintcode.com/problem/topological-sorting/description)<br>
+```python
+
+```
