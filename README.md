@@ -95,11 +95,12 @@ author: 周彬
  - [僵尸矩阵](#僵尸矩阵)
  - [骑士的最短路线](#骑士的最短路线)
  
-
-
 **chapter_5 深度优先搜索(Depth First Search)**
 
-待补充
+碰到让你找所有方案的题，一定是DFS<br>
+90%DFS的题，要么是排列，要么是组合<br>
+
+ - [子集](#子集)
 
 **chapter_6 链表与数组(Linked List & Array)**
 
@@ -1668,6 +1669,30 @@ class Solution:
                     continue
                 next_words_list.append(left+char+right)
         return next_words_list
+```
+
+---
+
+### 子集
+
+[子集](https://www.lintcode.com/problem/subsets/description)<br>
+```python
+class Solution:
+    
+    def search(self, nums, S, index):
+        if index == len(nums):
+            self.results.append(list(S))
+            return
+        
+        S.append(nums[index])
+        self.search(nums, S, index + 1)
+        S.pop()
+        self.search(nums, S, index + 1)
+        
+    def subsets(self, nums):
+        self.results = []
+        self.search(sorted(nums), [], 0)
+        return self.results
 ```
 
 ### 
