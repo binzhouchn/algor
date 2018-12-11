@@ -91,6 +91,7 @@ author: 周彬
 
  - [岛屿的个数](#岛屿的个数)
  - [僵尸矩阵](#僵尸矩阵)
+ - [骑士的最短路线](#骑士的最短路线)
 
 **chapter_5 深度优先搜索(Depth First Search)**
 
@@ -1547,4 +1548,6 @@ class Solution:
         return days - 1
 ```
 
-### 
+### 骑士的最短路线
+
+[骑士的最短路线](https://www.lintcode.com/problem/knight-shortest-path/description)<br>
