@@ -101,6 +101,7 @@ author: 周彬
 90%DFS的题，要么是排列，要么是组合<br>
 
  - [子集](#子集)
+ - [数字组合](#数字组合)
 
 **chapter_6 链表与数组(Linked List & Array)**
 
@@ -1695,4 +1696,9 @@ class Solution:
         return self.results
 ```
 
-### 
+### 数字组合
+
+[数字组合](https://www.lintcode.com/problem/combination-sum/description)<br>
+```python
+
+```
