@@ -87,12 +87,15 @@ author: 周彬
  - [拓扑排序](#拓扑排序)
  - [课程表](#课程表)
  - [找无向图的连通块](#找无向图的连通块)
+ - [单词接龙](#单词接龙)
 
 矩阵中的宽度优先搜索(BFS in Matrix)
 
  - [岛屿的个数](#岛屿的个数)
  - [僵尸矩阵](#僵尸矩阵)
  - [骑士的最短路线](#骑士的最短路线)
+ 
+
 
 **chapter_5 深度优先搜索(Depth First Search)**
 
@@ -1623,6 +1626,48 @@ class Solution:
                 q.append(neighbor)
                 self.visited.add(neighbor)
         return sorted(sub_res)
+```
+
+### 单词接龙
+
+[单词接龙](https://www.lintcode.com/problem/word-ladder/description)<br>
+```python
+from collections import deque
+class Solution:
+    """
+    @param: start: a string
+    @param: end: a string
+    @param: dict: a set of string
+    @return: An integer
+    """
+    def ladderLength(self, start, end, dict):
+        # write your code here
+        dict.add(end)
+        queue = deque([start])
+        visited = set([start])
+        distance = 0
+        
+        while queue:
+            distance += 1
+            for i in range(len(queue)):
+                word = queue.popleft()
+                if word == end:
+                    return distance
+                for next_word in self.get_next_word(word):
+                    if next_word not in dict or next_word in visited:
+                        continue
+                    queue.append(next_word)
+                    visited.add(next_word)
+        return 0
+    def get_next_word(self, word):
+        next_words_list = []
+        for i in range(len(word)):
+            left, right = word[:i], word[i+1:]
+            for char in 'abcdefghijklmnopqrstuvwxyz':
+                if char == word[i]:
+                    continue
+                next_words_list.append(left+char+right)
+        return next_words_list
 ```
 
 ### 
