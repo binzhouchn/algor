@@ -1551,3 +1551,40 @@ class Solution:
 ### 骑士的最短路线
 
 [骑士的最短路线](https://www.lintcode.com/problem/knight-shortest-path/description)<br>
+```python
+from collections import deque
+class Solution:
+    """
+    @param grid: a chessboard included 0 (false) and 1 (true)
+    @param source: a point
+    @param destination: a point
+    @return: the shortest path 
+    """
+    def shortestPath(self, grid, source, destination):
+        # write your code here
+        n = len(grid)
+        m = len(grid[0])
+        q = deque()
+        q.append([source.x, source.y])
+        directions = [[1,2],[1,-2],[-1,2],[-1,-2],[2,1],[2,-1],[-2,1],[-2,-1]]
+        d = 0
+        while q:
+            for i in range(len(q)):
+                x, y = q.popleft()
+                if x == destination.x and y == destination.y:
+                    return d
+                for i, j in directions:
+                    nx, ny = x + i, y + j
+                    if nx < 0 or nx >= n:
+                        continue
+                    if ny < 0 or ny >= m:
+                        continue
+                    if grid[nx][ny] == 1:
+                        continue
+                    q.append([nx, ny])
+                    grid[nx][ny] = 1
+            d += 1
+        return -1
+```
+
+### 
