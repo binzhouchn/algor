@@ -86,6 +86,7 @@ author: 周彬
  - [搜索图中节点](#搜索图中节点)
  - [拓扑排序](#拓扑排序)
  - [课程表](#课程表)
+ - [找无向图的连通块](#找无向图的连通块)
 
 矩阵中的宽度优先搜索(BFS in Matrix)
 
@@ -1585,6 +1586,43 @@ class Solution:
                     grid[nx][ny] = 1
             d += 1
         return -1
+```
+
+### 找无向图的连通块
+
+[找无向图的连通块](https://www.lintcode.com/problem/connected-component-in-undirected-graph/description)<br>
+```python
+from collections import deque
+class Solution:
+    """
+    @param: nodes: a array of Undirected graph node
+    @return: a connected set of a Undirected graph
+    """
+    
+    visited = set()
+    
+    def connectedSet(self, nodes):
+        # write your code here
+        if not nodes:
+            return []
+        res = []
+        for node in nodes:
+            if node not in self.visited:
+                res.append(self.bfs(node))
+        return res
+    def bfs(self, node):
+        sub_res = []
+        q = deque([node])
+        self.visited.add(node)
+        while q:
+            node = q.popleft()
+            sub_res.append(node.label)
+            for neighbor in node.neighbors:
+                if neighbor in self.visited:
+                    continue
+                q.append(neighbor)
+                self.visited.add(neighbor)
+        return sorted(sub_res)
 ```
 
 ### 
