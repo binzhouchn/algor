@@ -1700,5 +1700,29 @@ class Solution:
 
 [数字组合](https://www.lintcode.com/problem/combination-sum/description)<br>
 ```python
-
+class Solution:
+    """
+    @param candidates: A list of integers
+    @param target: An integer
+    @return: A list of lists of integers
+    """
+    def combinationSum(self, candidates, target):
+        # write your code here
+        if not candidates:
+            return [[]]
+        candidates = sorted(list(set(candidates)))
+        self.res = []
+        self.dfs(candidates, target, 0, [])
+        return self.res
+    def dfs(self, candidates, target, start, combination):
+        if target == 0:
+            self.res.append(list(combination))
+        for i in range(start, len(candidates)):
+            if target < candidates[i]:
+                return
+            combination.append(candidates[i])
+            self.dfs(candidates, target - candidates[i], i, combination)
+            combination.pop()
 ```
+
+### 
