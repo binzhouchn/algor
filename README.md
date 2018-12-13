@@ -2023,5 +2023,30 @@ class MyQueue:
 
 [直方图最大矩形覆盖](https://www.lintcode.com/problem/largest-rectangle-in-histogram/description)<br>
 ```python
+# 自己写的，会出现Time Limit Exceeded
+class Solution:
+    """
+    @param height: A list of integer
+    @return: The area of largest rectangle in the histogram
+    """
+    def largestRectangleArea(self, height):
+        # write your code here
+        if not height:
+            return 0
+        max_res = 0
+        for current_idx in range(len(height)):
+            left = current_idx
+            right = current_idx
+            while left > 0 and height[current_idx] <= height[left-1]:
+                left -= 1
+            while right < len(height) - 1 and height[current_idx] <= height[right+1]:
+                right += 1
+            print(left, right)
+            max_res = max(max_res, (right-left+1)*height[current_idx])
+        return max_res
+```
+
+```python
+# 九章算法给出的答案
 
 ```
