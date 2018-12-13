@@ -1955,9 +1955,6 @@ class Solution:
 ### 摊平嵌套的列表
 
 [摊平嵌套的列表](https://www.lintcode.com/problem/flatten-nested-list-iterator/description)<br>
-```python
-
-```
 
 摊平嵌套的列表(直接摊平，和题目无关)<br>
 ```python
@@ -1978,3 +1975,48 @@ def flatten_any_list(l):
             index += 1
     return res
 ```
+
+### 用栈实现队列
+
+[用栈实现队列](https://www.lintcode.com/problem/implement-queue-by-two-stacks/description)<br>
+```python
+from collections import deque
+class MyQueue:
+    
+    def __init__(self):
+        # do intialization if necessary
+        self.stack1 = deque()
+        self.stack2 = deque()
+
+    """
+    @param: element: An integer
+    @return: nothing
+    """
+    def push(self, element):
+        # write your code here
+        self.stack2.append(element)
+
+    """
+    @return: An integer
+    """
+    def pop(self):
+        # write your code here
+        if len(self.stack1) == 0:
+            self.stack2Tostack1()
+        return self.stack1.pop()
+
+    """
+    @return: An integer
+    """
+    def top(self):
+        # write your code here
+        if len(self.stack1) == 0:
+            self.stack2Tostack1()
+        return self.stack1[-1]
+    # new func
+    def stack2Tostack1(self):
+        while self.stack2:
+            self.stack1.append(self.stack2.pop())
+```
+
+### 
