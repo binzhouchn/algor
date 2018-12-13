@@ -124,7 +124,7 @@ author: 周彬
 
 **chapter_6 链表与数组(Linked List & Array)**
 
-待补充
+待补
 
 **chapter_7 两根指针(Two Pointers)**
 
@@ -2107,5 +2107,7 @@ class MinStack:
         # write your code here
         return self.min_stack[-1]
 ```
+
+---
 
 ### 
