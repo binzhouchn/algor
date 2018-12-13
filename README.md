@@ -2019,4 +2019,9 @@ class MyQueue:
             self.stack1.append(self.stack2.pop())
 ```
 
-### 
+### 直方图最大矩形覆盖
+
+[直方图最大矩形覆盖](https://www.lintcode.com/problem/largest-rectangle-in-histogram/description)<br>
+```python
+
+```
