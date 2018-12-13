@@ -102,7 +102,11 @@ author: 周彬
 
  - [子集](#子集)
  - [数字组合](#数字组合)
+ - [数字组合 II](#数字组合2)
  - [分割回文串](#分割回文串)
+ - [全排列](#全排列)
+ - [全排列 II(带重复元素的排列)](全排列2)
+ 
 
 **chapter_6 链表与数组(Linked List & Array)**
 
@@ -1726,7 +1730,7 @@ class Solution:
             combination.pop()
 ```
 
-### 数字组合 II
+### 数字组合2
 
 [数字组合 II](https://www.lintcode.com/problem/combination-sum-ii/description)<br>
 ```python
@@ -1786,4 +1790,16 @@ class Solution:
         return s == s[::-1]
 ```
 
-### 
+### 全排列
+
+[全排列](https://www.lintcode.com/problem/permutations/description)<br>
+```python
+
+```
+
+### 全排列2
+
+[全排列 II(带重复元素的排列)](https://www.lintcode.com/problem/permutations-ii/description)<br>
+```python
+
+```
