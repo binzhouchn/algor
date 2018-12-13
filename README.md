@@ -1919,5 +1919,42 @@ class Solution:
 
 [字符串解码]()<br>
 ```python
+# 递归方法
+class Solution:
+    """
+    @param s: an expression includes numbers, letters and brackets
+    @return: a string
+    """
+    def expressionExpand(self, s):
+        # write your code here
+        if not s or len(s) == 0:
+            return ''
+        res, pos = self.dfs(s, 0)
+        return res
+    def dfs(self, s, index):
+        res = ''
+        number = 0
+        while index < len(s):
+            if s[index].isalpha():
+                res += s[index]
+                index += 1
+            elif s[index].isdigit():
+                number = 10 * number + int(s[index])
+                index += 1
+            elif s[index] == '[':
+                substring, pos = self.dfs(s, index + 1)
+                res += number * substring
+                number = 0
+                index = pos
+            else:
+                index += 1
+                return res, index
+        return res, index
+```
+
+### 摊平嵌套的列表
+
+[摊平嵌套的列表](https://www.lintcode.com/problem/flatten-nested-list-iterator/description)<br>
+```python
 
 ```
