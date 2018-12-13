@@ -102,6 +102,7 @@ author: 周彬
 
  - [子集](#子集)
  - [数字组合](#数字组合)
+ - [分割回文串](#分割回文串)
 
 **chapter_6 链表与数组(Linked List & Array)**
 
@@ -1725,4 +1726,41 @@ class Solution:
             combination.pop()
 ```
 
-### 
+### 数字组合 II
+
+[数字组合 II](https://www.lintcode.com/problem/combination-sum-ii/description)<br>
+```python
+class Solution:
+    """
+    @param num: Given the candidate numbers
+    @param target: Given the target number
+    @return: All the combinations that sum to target
+    """
+    def combinationSum2(self, num, target):
+        # write your code here
+        if not num:
+            return []
+        num.sort()
+        self.res = []
+        self.use = [0] * len(num)
+        self.dfs(num, target, 0, [])
+        return self.res
+    def dfs(self, candidates, target, start, combination):
+        if target == 0:
+            self.res.append(list(combination))
+            return
+        for i in range(start, len(candidates)):
+            if candidates[i] <= target and (i == 0 or candidates[i-1] != candidates[i] or self.use[i-1] == 1):
+                combination.append(candidates[i])
+                self.use[i] = 1
+                self.dfs(candidates, target-candidates[i], i+1, combination)
+                combination.pop()
+                self.use[i] = 0
+```
+
+### 分割回文串
+
+[分割回文串](https://www.lintcode.com/problem/palindrome-partitioning/description)<br>
+```python
+
+```
