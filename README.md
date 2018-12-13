@@ -1825,5 +1825,35 @@ class Solution:
 
 [全排列 II(带重复元素的排列)](https://www.lintcode.com/problem/permutations-ii/description)<br>
 ```python
+class Solution:
+    """
+    @param: :  A list of integers
+    @return: A list of unique permutations
+    """
 
+    def permuteUnique(self, nums):
+        # write your code here
+        if not nums:
+            return [[]]
+        nums.sort()
+        self.res = []
+        self.visited = [False] * len(nums)
+        self.dfs(nums, [])
+        return self.res
+    def dfs(self, nums, permutation):
+        if len(nums) == len(permutation):
+            self.res.append(list(permutation))
+            return
+        for i in range(len(nums)):
+            if self.visited[i]:
+                continue
+            if i > 0 and nums[i] == nums[i-1] and (not self.visited[i-1]):
+                continue
+            permutation.append(nums[i])
+            self.visited[i] = True
+            self.dfs(nums, permutation)
+            permutation.pop()
+            self.visited[i] = False
 ```
+
+### 
