@@ -1958,3 +1958,23 @@ class Solution:
 ```python
 
 ```
+
+摊平嵌套的列表(直接摊平，和题目无关)<br>
+```python
+def flatten_any_list(l):
+    # 先把列表变成str
+    l = str(l)
+    # 把str中的数字提取出来
+    index = 0
+    res = []
+    while index < len(l):
+        if l[index].isdigit():
+            start = index
+            index += 1
+            while index < len(l) and l[index].isdigit():
+                index += 1
+            res.append(int(l[start:index]))
+        else:
+            index += 1
+    return res
+```
