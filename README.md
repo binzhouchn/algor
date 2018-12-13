@@ -1762,5 +1762,28 @@ class Solution:
 
 [分割回文串](https://www.lintcode.com/problem/palindrome-partitioning/description)<br>
 ```python
-
+class Solution:
+    """
+    @param: s: A string
+    @return: A list of lists of string
+    """
+    def partition(self, s):
+        # write your code here
+        if not s or len(s) == 0:
+            return []
+        self.res = []
+        self.dfs(s, [])
+        return self.res
+    def dfs(self, s, stringlist):
+        if len(s) == 0:
+            self.res.append(list(stringlist))
+            return
+        for i in range(1, len(s)+1):
+            prefix = s[:i]
+            if self.is_palindrome(prefix):
+                self.dfs(s[i:], stringlist+[prefix])
+    def is_palindrome(self, s):
+        return s == s[::-1]
 ```
+
+### 
