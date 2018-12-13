@@ -114,7 +114,7 @@ author: 周彬
 
  - [用栈实现队列](#用栈实现队列)
  - [直方图最大矩形覆盖](#直方图最大矩形覆盖)
- - [带最小值操作的栈](#带最小值操作的栈)
+ - [带最小值操作的栈 min-stack](#带最小值操作的栈)
 
 总结 Conclusion<br>
 什么时候用 DFS？ 求所有方案时<br>
@@ -2047,6 +2047,31 @@ class Solution:
 ```
 
 ```python
-# 九章算法给出的答案
+# 九章算法给出的答案 stack解决
+class Solution:
+    """
+    @param height: A list of integer
+    @return: The area of largest rectangle in the histogram
+    """
+    def largestRectangleArea(self, height):
+        # write your code here
+        if not height:
+            return 0
+        stack = []
+        max_res = 0
+        for i in range(len(height)+1):
+            curt = -1 if i == len(height) else height[i]
+            while len(stack) != 0 and (curt <= height[stack[-1]]):
+                h = height[stack.pop()]
+                w = i if len(stack) == 0 else i - stack[-1] -1
+                max_res = max(max_res, h * w)
+            stack.append(i)
+        return max_res
+```
+
+### 带最小值操作的栈
+
+[带最小值操作的栈 min-stack](https://www.lintcode.com/problem/min-stack/description)<br>
+```python
 
 ```
