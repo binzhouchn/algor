@@ -106,7 +106,7 @@ author: 周彬
  - [分割回文串](#分割回文串)
  - [全排列](#全排列)
  - [全排列 II(带重复元素的排列)](全排列2)
- - [N皇后问题](#N皇后问题)
+ - [N皇后问题](#n皇后问题)
  - [字符串解码](#字符串解码)
  - [摊平嵌套的列表](#摊平嵌套的列表)
 
@@ -1870,4 +1870,54 @@ class Solution:
             self.visited[i] = False
 ```
 
-### 
+### n皇后问题
+
+[N皇后问题](https://www.lintcode.com/problem/n-queens/description)<br>
+```python
+class Solution:
+    """
+    @param: n: The number of queens
+    @return: All distinct solutions
+    """
+    def solveNQueens(self, n):
+        # write your code here
+        if n < 1:
+            return []
+        self.res = []
+        self.search(n, [])
+        return self.res
+    def search(self, n, cols):
+        if len(cols) == n:
+            self.res.append(self.drawchessboard(cols))
+            return
+        for col_index in range(n):
+            if not self.is_valid(cols, col_index):
+                continue
+            cols.append(col_index)
+            self.search(n, cols)
+            cols.pop()
+    def is_valid(self, cols, col_index):
+        row = len(cols)
+        for row_idx in range(row):
+            if cols[row_idx] == col_index:
+                return False
+            if row_idx + cols[row_idx] == row + col_index:
+                return False
+            if row_idx - cols[row_idx] == row - col_index:
+                return False
+        return True
+    def drawchessboard(self, cols):
+        draw_res = []
+        for i in cols:
+            s = ['.'] * len(cols)
+            s[i] = 'Q'
+            draw_res.append(''.join(s))
+        return draw_res
+```
+
+### 字符串解码
+
+[字符串解码]()<br>
+```python
+
+```
