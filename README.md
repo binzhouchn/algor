@@ -1794,7 +1794,31 @@ class Solution:
 
 [全排列](https://www.lintcode.com/problem/permutations/description)<br>
 ```python
-
+class Solution:
+    """
+    @param: nums: A list of integers.
+    @return: A list of permutations.
+    """
+    def permute(self, nums):
+        # write your code here
+        if not nums:
+            return [[]]
+        self.res = []
+        self.visited = [False] * len(nums) # 初始化为False
+        self.dfs(nums, [])
+        return self.res
+    def dfs(self, nums, permutation):
+        if len(nums) == len(permutation):
+            self.res.append(list(permutation))
+            return
+        for i in range(len(nums)):
+            if self.visited[i]:
+                continue
+            permutation.append(nums[i])
+            self.visited[i] = True
+            self.dfs(nums, permutation)
+            self.visited[i] = False
+            permutation.pop()
 ```
 
 ### 全排列2
