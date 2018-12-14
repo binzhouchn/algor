@@ -124,7 +124,7 @@ author: 周彬
 
 **chapter_6 链表与数组(Linked List & Array)**
 
-Linked List<br>
+Linked List
 
  - [翻转链表](#翻转链表)
  - [翻转链表 II](#翻转链表2)
