@@ -2170,3 +2170,34 @@ class Solution:
 ```
 
 ### 链表划分
+
+[链表划分](https://www.lintcode.com/problem/partition-list/description)<br>
+```python
+class Solution:
+    """
+    @param head: The first node of linked list
+    @param x: An integer
+    @return: A ListNode
+    """
+    def partition(self, head, x):
+        # write your code here
+        if not head:
+            return None
+        leftdummy = ListNode(0)
+        rightdummy = ListNode(0)
+        left = leftdummy
+        right = rightdummy
+        while head:
+            if head.val < x:
+                left.next = head
+                left = head
+            else:
+                right.next = head
+                right = head
+            head = head.next
+        right.next = None
+        left.next = rightdummy.next
+        return leftdummy.next
+```
+
+### 
