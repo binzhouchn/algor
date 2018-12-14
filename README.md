@@ -2297,5 +2297,50 @@ class Solution:
 
 [交换链表当中两个节点](https://www.lintcode.com/problem/swap-two-nodes-in-linked-list/description)<br>
 ```python
-
+class Solution:
+    """
+    @param head: a ListNode
+    @param v1: An integer
+    @param v2: An integer
+    @return: a new head of singly-linked list
+    """
+    def swapNodes(self, head, v1, v2):
+        # write your code here
+        dummy = ListNode(0)
+        dummy.next = head
+        head = dummy
+        v1_curt = None
+        v2_curt = None
+        while head.next:
+            if head.next.val == v1:
+                v1_prev = head
+                v1_curt = head.next
+                v1_post = head.next.next
+            if head.next.val == v2:
+                v2_prev = head
+                v2_curt = head.next
+                v2_post = head.next.next
+            head = head.next
+        if (not v1_curt) or (not v2_curt):
+            return dummy.next
+        # connect
+        # v1，v2相邻 v1 -> v2
+        if v1_curt.next == v2_curt:
+            v1_prev.next = v2_curt
+            v2_curt.next = v1_curt
+            v1_curt.next = v2_post
+        # v1，v2相邻 v2 -> v1
+        elif v2_curt.next == v1_curt:
+            v2_prev.next = v1_curt
+            v1_curt.next = v2_curt
+            v2_curt.next = v1_post
+        # v1，v2不相邻
+        else:
+            v1_prev.next = v2_curt
+            v2_curt.next = v1_post
+            v2_prev.next = v1_curt
+            v1_curt.next = v2_post
+        return dummy.next
 ```
+
+### 
