@@ -2153,6 +2153,7 @@ class Solution:
         n1 = head.next
         nkplus = nk.next
         
+        # 这一步做的就是把n1和nk指针反转过来
         prev = None
         curt = n1
         while curt != nkplus:
