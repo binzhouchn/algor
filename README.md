@@ -128,6 +128,7 @@ Linked List<br>
 
  - [K组翻转链表](#K组翻转链表)
  - [链表划分](#链表划分)
+ - [合并两个排序链表](#合并两个排序链表)
 
 **chapter_7 两根指针(Two Pointers)**
 
@@ -2200,4 +2201,9 @@ class Solution:
         return leftdummy.next
 ```
 
-### 
+### 合并两个排序链表
+
+[合并两个排序链表](https://www.lintcode.com/problem/merge-two-sorted-lists/description)<br>
+```python
+
+```
