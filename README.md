@@ -131,7 +131,7 @@ Linked List<br>
  - [K组翻转链表](#K组翻转链表)
  - [链表划分](#链表划分)
  - [合并两个排序链表](#合并两个排序链表)
- - []()
+ - [交换链表当中两个节点](#交换链表当中两个节点)
 
 **chapter_7 两根指针(Two Pointers)**
 
@@ -2293,4 +2293,9 @@ class Solution:
         return dummy.next
 ```
 
-### 
+### 交换链表当中两个节点
+
+[交换链表当中两个节点](https://www.lintcode.com/problem/swap-two-nodes-in-linked-list/description)<br>
+```python
+
+```
