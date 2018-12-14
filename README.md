@@ -127,6 +127,7 @@ author: 周彬
 Linked List<br>
 
  - [K组翻转链表](#K组翻转链表)
+ - [链表划分](#链表划分)
 
 **chapter_7 两根指针(Two Pointers)**
 
