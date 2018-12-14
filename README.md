@@ -124,7 +124,9 @@ author: 周彬
 
 **chapter_6 链表与数组(Linked List & Array)**
 
-待补
+Linked List<br>
+
+ - [K组翻转链表](#K组翻转链表)
 
 **chapter_7 两根指针(Two Pointers)**
 
@@ -2109,5 +2111,60 @@ class MinStack:
 ```
 
 ---
+
+### K组翻转链表
+
+[K组翻转链表](https://www.lintcode.com/problem/reverse-nodes-in-k-group/description)<br>
+```python
+"""
+Definition of ListNode
+class ListNode(object):
+    def __init__(self, val, next=None):
+        self.val = val
+        self.next = next
+"""
+
+class Solution:
+    """
+    @param head: a ListNode
+    @param k: An integer
+    @return: a ListNode
+    """
+    def reverseKGroup(self, head, k):
+        # write your code here
+        dummy = ListNode(0)
+        dummy.next = head
+        
+        head = dummy
+        while True:
+            head = self.reverseK(head, k)
+            if not head:
+                break
+        return dummy.next
+    def reverseK(self, head, k):
+        nk = head
+        for _ in range(k):
+            if not nk:
+                return None
+            nk = nk.next
+        if not nk:
+            return None
+        # reverse
+        n1 = head.next
+        nkplus = nk.next
+        
+        prev = None
+        curt = n1
+        while curt != nkplus:
+            tmp = curt.next
+            curt.next = prev
+            prev = curt
+            curt = tmp
+        
+        # connect
+        head.next = nk
+        n1.next = nkplus
+        return n1
+```
 
 ### 
