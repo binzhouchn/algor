@@ -126,9 +126,12 @@ author: 周彬
 
 Linked List<br>
 
+ - [翻转链表](#翻转链表)
+ - [翻转链表 II](#翻转链表2)
  - [K组翻转链表](#K组翻转链表)
  - [链表划分](#链表划分)
  - [合并两个排序链表](#合并两个排序链表)
+ - []()
 
 **chapter_7 两根指针(Two Pointers)**
 
@@ -2114,18 +2117,78 @@ class MinStack:
 
 ---
 
-### K组翻转链表
+### 翻转链表
 
-[K组翻转链表](https://www.lintcode.com/problem/reverse-nodes-in-k-group/description)<br>
+[翻转链表](https://www.lintcode.com/problem/reverse-linked-list/description)<br>
 ```python
 """
 Definition of ListNode
+
 class ListNode(object):
+
     def __init__(self, val, next=None):
         self.val = val
         self.next = next
 """
 
+class Solution:
+    """
+    @param head: n
+    @return: The new head of reversed linked list.
+    """
+    def reverse(self, head):
+        # write your code here
+        prev = None
+        while head:
+            tmp = head.next
+            head.next = prev
+            prev = head
+            head = tmp
+        return prev
+```
+
+### 翻转链表2
+
+[翻转链表 II](https://www.lintcode.com/problem/reverse-linked-list-ii/description)<br>
+```python
+class Solution:
+    """
+    定义dummy node
+    把m前一个和n后一个标记一下
+    把m和n之间的链表反转一下
+    //connect
+    return dummy.next
+    """
+    def reverseBetween(self, head, m, n):
+        # write your code here
+        dummy = ListNode(0)
+        dummy.next = head
+        head = dummy
+        for _ in range(m-1):
+            head = head.next
+        mprev = head
+        mcurrent = head.next
+        for _ in range(m-1,n):
+            head = head.next
+        ncurrent = head
+        nplus = head.next
+        
+        prev = None
+        curt = mcurrent
+        while curt != nplus:
+            tmp = curt.next
+            curt.next = prev
+            prev = curt
+            curt = tmp
+        mprev.next = ncurrent
+        mcurrent.next = nplus
+        return dummy.next
+```
+
+### K组翻转链表
+
+[K组翻转链表](https://www.lintcode.com/problem/reverse-nodes-in-k-group/description)<br>
+```python
 class Solution:
     """
     @param head: a ListNode
