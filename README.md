@@ -132,6 +132,7 @@ Linked List
  - [链表划分](#链表划分)
  - [合并两个排序链表](#合并两个排序链表)
  - [交换链表当中两个节点](#交换链表当中两个节点)
+ - [重排链表](#重排链表)
  
  
 **chapter_7 两根指针(Two Pointers)**
@@ -2344,4 +2345,9 @@ class Solution:
         return dummy.next
 ```
 
-### 
+### 重排链表
+
+[重排链表](https://www.lintcode.com/problem/reorder-list/description)<br>
+```python
+
+```
