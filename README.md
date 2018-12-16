@@ -2349,5 +2349,6 @@ class Solution:
 
 [重排链表](https://www.lintcode.com/problem/reorder-list/description)<br>
 ```python
-
+Class Solution:
+    
 ```
