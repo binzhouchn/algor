@@ -147,6 +147,7 @@ Array<br>
 
  - [最大子数组](#最大子数组)
  - [子数组之和](#子数组之和)
+ - [最接近零的子数组和](#最接近零的子数组和)
  
  
 **chapter_7 两根指针(Two Pointers)**
@@ -2540,6 +2541,36 @@ class Solution:
                 return [use_map[prefix_sum]+1, i]
             use_map[prefix_sum] = i
         return []
+```
+
+### 最接近零的子数组和
+
+[最接近零的子数组和](https://www.lintcode.com/problem/subarray-sum-closest/description)<br>
+```python
+class Solution:
+    """
+    @param: nums: A list of integers
+    @return: A list of integers includes the index of the first number and the index of the last number
+    """
+    def subarraySumClosest(self, nums):
+        # write your code here
+        if not nums or len(nums) == 0:
+            return []
+        prefix_sum = [(0,-1)]
+        for i, num in enumerate(nums):
+            prefix_sum.append((prefix_sum[-1][0]+num, i))
+        
+        prefix_sum = sorted(prefix_sum, key=lambda x : x[0])
+        
+        closest = sys.maxsize
+        res = []
+        for i in range(1, len(prefix_sum)):
+            if closest > prefix_sum[i][0] - prefix_sum[i-1][0]:
+                closest = prefix_sum[i][0] - prefix_sum[i-1][0]
+                left = min(prefix_sum[i][1], prefix_sum[i-1][1]) + 1
+                right = max(prefix_sum[i][1], prefix_sum[i-1][1])
+                res = [left, right]
+        return res
 ```
 
 ### 
