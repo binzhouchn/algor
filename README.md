@@ -2521,5 +2521,23 @@ class Solution:
 
 [子数组之和](https://www.lintcode.com/problem/subarray-sum/description)<br>
 ```python
-
+class Solution:
+    """
+    @param nums: A list of integers
+    @return: A list of integers includes the index of the first number and the index of the last number
+    """
+    def subarraySum(self, nums):
+        # write your code here
+        if not nums or len(nums) == 0:
+            return []
+        use_map = {0:-1}
+        prefix_sum = 0
+        for i in range(len(nums)):
+            prefix_sum += nums[i]
+            if prefix_sum in use_map:
+                return [use_map[prefix_sum]+1, i]
+            use_map[prefix_sum] = i
+        return []
 ```
+
+### 
