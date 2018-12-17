@@ -2410,5 +2410,65 @@ class Solution:
 
 [旋转链表](https://www.lintcode.com/problem/rotate-list/description)<br>
 ```python
+class Solution:
+    """
+    @param head: the List
+    @param k: rotate to the right k places
+    @return: the list after rotation
+    """
+    def rotateRight(self, head, k):
+        # write your code here
+        if head == None or k == 0:
+            return head
+        curnode = head
+        size = 0
+        while curnode != None:
+            size += 1
+            curnode = curnode.next
+        k = k % size
+        if k == 0:
+            return head
+        index = 1
+        curnode = head
+        while index < size - k:
+            curnode = curnode.next
+            index += 1
+        newHead = curnode.next
+        curnode.next = None
+        dummy = ListNode(0)
+        dummy.next = newHead
+        while newHead.next != None:
+            newHead = newHead.next
+        newHead.next = head
+        return dummy.next
+```
+
+### 带环链表
+
+[带环链表](https://www.lintcode.com/problem/linked-list-cycle/description)<br>
+```python
+class Solution:
+    """
+    @param head: The first node of linked list.
+    @return: True if it has a cycle, or false
+    """
+    def hasCycle(self, head):
+        # write your code here
+        if head == None or head.next == None:
+            return False
+        slow = head
+        fast = head.next
+        while slow != fast:
+            if fast == None or fast.next == None:
+                return False
+            fast = fast.next.next
+            slow = slow.next
+        return True
+```
+
+### 带环链表2
+
+[带环链表 II](https://www.lintcode.com/problem/linked-list-cycle-ii/description)<br>
+```python
 
 ```
