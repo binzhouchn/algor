@@ -151,6 +151,7 @@ Array<br>
  - [整数排序 II(quick sort&merge sort)](#整数排序2)
  - [合并排序数组](#合并排序数组)
  - [合并排序数组 II](#合并排序数组2)
+ - [两个排序数组的中位数](#两个排序数组的中位数)
  
  
 **chapter_7 两根指针(Two Pointers)**
@@ -2686,4 +2687,11 @@ class Solution:
         res += A[i:]
         res += B[j:]
         return res
+```
+
+### 两个排序数组的中位数
+
+[两个排序数组的中位数](https://www.lintcode.com/problem/median-of-two-sorted-arrays/description)<br>
+```python
+
 ```
