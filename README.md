@@ -2495,4 +2495,25 @@ class Solution:
 
 ### 最大子数组
 
-[最大子数组]()<br>
+[最大子数组](https://www.lintcode.com/problem/maximum-subarray/description)<br>
+```python
+class Solution:
+    """
+    @param nums: A list of integers
+    @return: A integer indicate the sum of max subarray
+    """
+    def maxSubArray(self, nums):
+        # write your code here
+        if not nums:
+            return 0
+        max_res = -sys.maxsize
+        sum = 0
+        min_sum = 0
+        for i in nums:
+            sum += i
+            max_res = max(max_res, sum - min_sum)
+            min_sum = min(sum, min_sum)
+        return max_res
+```
+
+### 
