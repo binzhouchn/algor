@@ -2508,12 +2508,12 @@ class Solution:
         if not nums:
             return 0
         max_res = -sys.maxsize
-        sum = 0
+        prefix_sum = 0
         min_sum = 0
         for i in nums:
-            sum += i
-            max_res = max(max_res, sum - min_sum)
-            min_sum = min(sum, min_sum)
+            prefix_sum += i
+            max_res = max(max_res, prefix_sum - min_sum)
+            min_sum = min(prefix_sum, min_sum)
         return max_res
 ```
 
