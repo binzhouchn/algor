@@ -2470,5 +2470,27 @@ class Solution:
 
 [带环链表 II](https://www.lintcode.com/problem/linked-list-cycle-ii/description)<br>
 ```python
-
+class Solution:
+    """
+    @param head: The first node of linked list.
+    @return: The node where the cycle begins. if there is no cycle, return null
+    """
+    def detectCycle(self, head):
+        # write your code here
+        if head == None or head.next == None:
+            return None
+        slow = head
+        fast = head.next
+        while fast != slow:
+            if fast == None or fast.next == None:
+                return None
+            fast = fast.next.next
+            slow = slow.next
+        # 找入口
+        while head != slow.next:
+            head = head.next
+            slow = slow.next
+        return head
 ```
+
+### 
