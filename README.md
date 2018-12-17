@@ -2605,5 +2605,31 @@ class Solution:
 ```
 ```python
 # 合并排序 merge sort
+# 不会覆盖原来的arr
+def merge_sort(arr):
+    # 归并排序
+    if len(arr) <= 1:
+        return arr
+    num = len(arr) >> 1
+    left = merge_sort(arr[:num])
+    right = merge_sort(arr[num:])
+    return merge(left, right)
 
+def merge(left, right):
+    i, j = 0, 0
+    result = []
+    while i < len(left) and j < len(right):
+        if left[i] <= right[j]:
+            result.append(left[i])
+            i += 1
+        else:
+            result.append(right[j])
+            j += 1
+    result += left[i:]
+    result += right[j:]
+    ## 左边或右边list走完了，肯定会有一方剩下的直接append就行，肯定是左或右同一组最大的几个剩下
+    # result += left[i:] if len(right[j:]) == 0 else right[j:]
+    return result
 ```
+
+### 
