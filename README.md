@@ -133,6 +133,7 @@ Linked List
  - [合并两个排序链表](#合并两个排序链表)
  - [交换链表当中两个节点](#交换链表当中两个节点)
  - [重排链表](#重排链表)
+ - [旋转链表](#旋转链表)
  
  
 **chapter_7 两根指针(Two Pointers)**
@@ -2395,4 +2396,9 @@ class Solution:
             dummy.next = head2
 ```
 
-### 
+### 旋转链表
+
+[旋转链表](https://www.lintcode.com/problem/rotate-list/description)<br>
+```python
+
+```
