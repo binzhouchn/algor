@@ -148,6 +148,7 @@ Array<br>
  - [最大子数组](#最大子数组)
  - [子数组之和](#子数组之和)
  - [最接近零的子数组和](#最接近零的子数组和)
+ - [整数排序 II(quick sort&merge sort)](#整数排序2)
  
  
 **chapter_7 两根指针(Two Pointers)**
@@ -2573,4 +2574,13 @@ class Solution:
         return res
 ```
 
-### 
+### 整数排序2
+
+[整数排序2](https://www.lintcode.com/problem/sort-integers-ii/description)<br>
+```python
+# quick sort
+
+```
+```python
+# merge sort
+```
