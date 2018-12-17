@@ -144,6 +144,7 @@ Linked List
 Array
 
  - [最大子数组](#最大子数组)
+ - [子数组之和](#子数组之和)
  
  
 **chapter_7 两根指针(Two Pointers)**
@@ -2516,4 +2517,9 @@ class Solution:
         return max_res
 ```
 
-### 
+### 子数组之和
+
+[子数组之和](https://www.lintcode.com/problem/subarray-sum/description)<br>
+```python
+
+```
