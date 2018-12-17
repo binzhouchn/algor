@@ -2663,3 +2663,27 @@ class Solution:
             j -= 1
 ```
 
+### 合并排序数组2
+
+[合并排序数组 II](https://www.lintcode.com/problem/merge-two-sorted-arrays/description)<br>
+```python
+class Solution:
+    def mergeSortedArray(self, A, B):
+        # write your code here
+        if not A:
+            return B
+        if not B:
+            return A
+        res = []
+        i, j = 0, 0
+        while i < len(A) and j < len(B):
+            if A[i] <= B[j]:
+                res.append(A[i])
+                i += 1
+            else:
+                res.append(B[j])
+                j += 1
+        res += A[i:]
+        res += B[j:]
+        return res
+```
