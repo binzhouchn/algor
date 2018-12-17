@@ -2349,5 +2349,50 @@ class Solution:
 
 [重排链表](https://www.lintcode.com/problem/reorder-list/description)<br>
 ```python
-
+class Solution:
+    """
+    @param head: The head of linked list.
+    @return: nothing
+    """
+    def reorderList(self, head):
+        # write your code here
+        if head == None:
+            return None
+        mid = self.findMiddle(head)
+        tail = self.reverse(mid.next)
+        mid.next = None
+        self.merge(head, tail)
+    def findMiddle(self, head):
+        slow = head
+        fast = head.next
+        while fast != None and fast.next != None:
+            fast = fast.next.next
+            slow = slow.next
+        return slow
+    def reverse(self, head):
+        prev = None
+        while head != None:
+            tmp = head.next
+            head.next = prev
+            prev = head
+            head = tmp
+        return prev
+    def merge(self, head1, head2):
+        index = 0
+        dummy = ListNode(0)
+        while head1 != None and head2 != None:
+            if index % 2 == 0:
+                dummy.next = head1
+                head1 = head1.next
+            else:
+                dummy.next = head2
+                head2 = head2.next
+            dummy = dummy.next
+            index += 1
+        if head1 != None:
+            dummy.next = head1
+        if head2 != None:
+            dummy.next = head2
 ```
+
+### 
