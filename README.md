@@ -2578,9 +2578,32 @@ class Solution:
 
 [整数排序2](https://www.lintcode.com/problem/sort-integers-ii/description)<br>
 ```python
-# quick sort
-
+# 快速排序 quick sort
+class Solution:
+    """
+    @param A: an integer array
+    @return: nothing
+    """
+    def sortIntegers2(self, A):
+        # write your code here
+        self.quick_sort(A, 0, len(A)-1)
+    def quick_sort(self, A, left, right):
+        if not A or len(A) <= 1 or left >= right:
+            return A
+        start = left
+        end = right
+        pivot = A[left]
+        while left < right:
+            while left < right and A[right] >= pivot:
+                right -= 1
+            A[left], A[right] = A[right], A[left]
+            while left < right and A[left] <= pivot:
+                left += 1
+            A[left], A[right] = A[right], A[left]
+        self.quick_sort(A, start, left-1)
+        self.quick_sort(A, right+1, end)
 ```
 ```python
-# merge sort
+# 合并排序 merge sort
+
 ```
