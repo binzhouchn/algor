@@ -149,6 +149,8 @@ Array<br>
  - [子数组之和](#子数组之和)
  - [最接近零的子数组和](#最接近零的子数组和)
  - [整数排序 II(quick sort&merge sort)](#整数排序2)
+ - [合并排序数组](#合并排序数组)
+ - [合并排序数组 II](#合并排序数组2)
  
  
 **chapter_7 两根指针(Two Pointers)**
@@ -2632,4 +2634,9 @@ def merge(left, right):
     return result
 ```
 
-### 
+### 合并排序数组
+
+[合并排序数组](https://www.lintcode.com/problem/merge-sorted-array/description)<br>
+```python
+
+```
