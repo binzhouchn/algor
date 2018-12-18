@@ -2691,17 +2691,47 @@ class Solution:
         return res
 ```
 
-### 中位数
-
-
-
-### 第k大元素
-
-[第k大元素]()<>
-
 ### 两个排序数组的中位数
 
 [两个排序数组的中位数](https://www.lintcode.com/problem/median-of-two-sorted-arrays/description)<br>
 ```python
-
+class Solution:
+    def findMedianSortedArrays(self, A, B):
+        # write your code here
+        n = len(A) + len(B)
+        if n % 2 == 0:
+            return (self.findKth(A, B, n//2) + self.findKth(A, B, n//2+1))/2.0
+        return self.findKth(A, B, n//2+1)
+    def findKth(self, A, B, k):
+        if len(A) == 0:
+            return B[k-1]
+        if len(B) == 0:
+            return A[k-1]
+        start = min(A[0], B[0])
+        end = max(A[len(A)-1], B[len(B)-1])
+        while start + 1 < end:
+            mid = start + (end - start) // 2
+            if self.countSmallerOrEqual(A, mid) + self.countSmallerOrEqual(B, mid) < k:
+                start = mid
+            else:
+                end = mid
+        if self.countSmallerOrEqual(A, start) + self.countSmallerOrEqual(B, start) >= k:
+            return start
+        return end
+    def countSmallerOrEqual(self, arr, number):
+        start = 0
+        end = len(arr) - 1
+        while start + 1 < end:
+            mid = start + (end - start) // 2
+            if arr[mid] <= number:
+                start = mid
+            else:
+                end = mid
+        if arr[start] > number:
+            return start
+        if arr[end] > number:
+            return end
+        return len(arr)
 ```
+
+### 
