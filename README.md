@@ -153,6 +153,7 @@ Array<br>
  - [合并排序数组 II](#合并排序数组2)
  - [两个排序数组的中位数](#两个排序数组的中位数)
  - [买卖股票的最佳时机](#买卖股票的最佳时机)
+ - [买卖股票的最佳时机 II](#买卖股票的最佳时机2)
  
  
 **chapter_7 两根指针(Two Pointers)**
@@ -2737,5 +2738,42 @@ class Solution:
 
 [买卖股票的最佳时机](https://www.lintcode.com/problem/best-time-to-buy-and-sell-stock/description)<br>
 ```python
-
+class Solution:
+    """
+    @param prices: Given an integer array
+    @return: Maximum profit
+    """
+    def maxProfit(self, prices):
+        # write your code here
+        if not prices or len(prices) == 0:
+            return 0
+        min_val = sys.maxsize
+        profit = 0
+        for i in prices:
+            min_val = i if i < min_val else min_val
+            profit = i - min_val if (i-min_val) > profit else profit
+        return profit
 ```
+
+### 买卖股票的最佳时机2
+
+[买卖股票的最佳时机 II](https://www.lintcode.com/problem/best-time-to-buy-and-sell-stock-ii/description)<br>
+```python
+class Solution:
+    """
+    @param prices: Given an integer array
+    @return: Maximum profit
+    """
+    def maxProfit(self, prices):
+        # write your code here
+        if not prices or len(prices) == 0:
+            return 0
+        profit = 0
+        for i in range(1, len(prices)):
+            diff = prices[i] - prices[i-1]
+            if diff > 0:
+                profit += diff
+        return profit
+```
+
+### 买卖股票的最佳时机3
