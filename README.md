@@ -163,6 +163,7 @@ Array<br>
  - [有效回文串](#有效回文串)
  - [数组划分](#数组划分)
  - [无序数组K小元素](#无序数组K小元素)
+ - [交错正负数](#交错正负数)
 
 **chapter_8 数据结构(Data Structure)**
 
@@ -2898,6 +2899,40 @@ class Solution:
             return self.quickSelect(A, left, end, k)
         else:
             return A[k]
+```
+
+### 交错正负数
+
+[交错正负数](https://www.lintcode.com/problem/interleaving-positive-and-negative-numbers/description)<br>
+```python
+class Solution:
+
+    def rerange(self, A):
+        # write your code here
+        if not A or len(A) == 0:
+            return 
+        A.sort()
+        
+        A_pos = len([x for x in A if x > 0])
+        A_neg = len([x for x in A if x < 0])
+        
+        if A_neg > A_pos:
+            i = 1
+            j = len(A) - 1
+        elif A_neg == A_pos:
+            i = 0
+            j = len(A) - 1
+        else:
+            i = 0
+            j = len(A) - 2
+        idx = 0
+        while i < j:
+            if idx % 2 == 0:
+                A[i], A[j] = A[j], A[i]
+            i += 1
+            j -= 1
+            idx += 1
+        return
 ```
 
 ### 
