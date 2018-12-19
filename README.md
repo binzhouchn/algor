@@ -158,7 +158,8 @@ Array<br>
  
 **chapter_7 两根指针(Two Pointers)**
 
-待补充
+ - [移动零](#移动零)
+ - [去除重复元素](#去除重复元素)
 
 **chapter_8 数据结构(Data Structure)**
 
@@ -2776,4 +2777,11 @@ class Solution:
         return profit
 ```
 
-### 买卖股票的最佳时机3
+---
+
+### 移动零
+
+[移动零](https://www.lintcode.com/problem/move-zeroes/description)<br>
+```python
+
+```
