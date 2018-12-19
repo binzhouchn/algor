@@ -164,6 +164,8 @@ Array<br>
  - [数组划分](#数组划分)
  - [无序数组K小元素](#无序数组K小元素)
  - [交错正负数](#交错正负数)
+ - [字符大小写排序](#字符大小写排序)
+ - [两数之和](#两数之和)
 
 **chapter_8 数据结构(Data Structure)**
 
@@ -2933,6 +2935,53 @@ class Solution:
             j -= 1
             idx += 1
         return
+```
+
+### 字符大小写排序
+
+[字符大小写排序](https://www.lintcode.com/problem/sort-letters-by-case/description)<br>
+```python
+class Solution:
+    """
+    @param: chars: The letter array you should sort by Case
+    @return: nothing
+    """
+    def sortLetters(self, chars):
+        # write your code here
+        if not chars or len(chars) <= 1:
+            return chars
+        chars.sort(key=lambda x : x.isupper())
+```
+
+### 两数之和
+
+[两数之和](https://www.lintcode.com/problem/two-sum/description)<br>
+```python
+# 自己想的
+class Solution:
+    """
+    @param numbers: An array of Integer
+    @param target: target = numbers[index1] + numbers[index2]
+    @return: [index1, index2] (index1 < index2)
+    """
+    def twoSum(self, numbers, target):
+        # write your code here
+        if not numbers or len(numbers) == 0:
+            return None
+        nums = [(j, i) for i, j in enumerate(numbers)]
+        nums.sort(key=lambda x : x[0])
+        i = 0
+        j = len(numbers) - 1
+        while i < j:
+            if nums[i][0] + nums[j][0] == target:
+                start = min(nums[i][1], nums[j][1])
+                end = max(nums[i][1], nums[j][1])
+                return [start, end]
+            elif nums[i][0] + nums[j][0] < target:
+                i += 1
+            else:
+                j -= 1
+        return None
 ```
 
 ### 
