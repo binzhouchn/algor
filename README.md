@@ -161,6 +161,7 @@ Array<br>
  - [移动零](#移动零)
  - [去除重复元素](#去除重复元素)
  - [有效回文串](#有效回文串)
+ - [数组划分](#数组划分)
 
 **chapter_8 数据结构(Data Structure)**
 
@@ -2784,5 +2785,81 @@ class Solution:
 
 [移动零](https://www.lintcode.com/problem/move-zeroes/description)<br>
 ```python
-
+class Solution:
+    """
+    @param nums: an integer array
+    @return: nothing
+    """
+    def moveZeroes(self, nums):
+        # write your code here
+        if not nums or len(nums) <= 1:
+            return nums
+        i = 0
+        j = 1
+        while j < len(nums):
+            while j < len(nums) and nums[j] == 0:
+                j += 1
+            while i < j and nums[i] != 0:
+                i += 1
+            if i < j and j < len(nums):
+                nums[i], nums[j] = nums[j], nums[i]
+            i += 1
+            j += 1
+        return
 ```
+
+### 去除重复元素
+
+[去除重复元素](https://www.lintcode.com/problem/remove-duplicate-numbers-in-array/description)<br>
+```python
+class Solution:
+    def deduplication(self, nums):
+        # write your code here
+        if not nums or len(nums) == 0:
+            return 0
+        d_ = {}
+        res = 0
+        for i in nums:
+            if i not in d_:
+                d_[i] = True
+                nums[res] = i
+                res += 1
+        return res
+```
+
+### 有效回文串
+
+[有效回文串](https://www.lintcode.com/problem/valid-palindrome/description)<br>
+```python
+class Solution:
+    def isPalindrome(self, s):
+        # write your code here
+        l = [x for x in list(s) if x.isdigit() or x.isalpha()]
+        s_ = ''.join(l).lower()
+        return s_ == s_[::-1]
+```
+
+### 数组划分
+
+[数组划分](https://www.lintcode.com/problem/partition-array/description)<br>
+```python
+class Solution:
+    def partitionArray(self, nums, k):
+        # write your code here
+        if not nums or len(nums) <= 1:
+            return 0
+        i = 0
+        j = len(nums) - 1
+        while i < j:
+            while i < j and nums[i] < k:
+                i += 1
+            while i < j and nums[j] >= k:
+                j -= 1
+            if i < j:
+                nums[i], nums[j] = nums[j], nums[i]
+        if nums[i] < k:
+            return i + 1
+        return i
+```
+
+### 
