@@ -167,6 +167,9 @@ Array<br>
  - [字符大小写排序](#字符大小写排序)
  - [两数之和](#两数之和)
  - [两数之和 - 不同组成](#两数之和_不同组成)
+ - [三数之和](#三数之和)
+ - [两数和-小于或等于目标值](#两数和_小于或等于目标值)
+ - [最接近的三数之和](#最接近的三数之和)
 
 **chapter_8 数据结构(Data Structure)**
 
@@ -3015,4 +3018,69 @@ class Solution:
         return res
 ```
 
-###
+### 三数之和
+
+[三数之和](https://www.lintcode.com/problem/3sum/description)<br>
+```python
+# 思路：先固定一个指针，另外两个移动
+class Solution:
+    """
+    @param numbers: Give an array numbers of n integer
+    @return: Find all unique triplets in the array which gives the sum of zero.
+    """
+    def threeSum(self, numbers):
+        # write your code here
+        if not numbers or len(numbers) <= 2:
+            return []
+        numbers.sort()
+        uniq_lst = set()
+        res = []
+        for i in range(len(numbers) - 2):
+            j = i + 1
+            k = len(numbers) - 1
+            while j < k:
+                tmp = numbers[i] + numbers[j] + numbers[k]
+                tmp_s = str(numbers[i]) + str(numbers[j]) + str(numbers[k])
+                if tmp == 0 and tmp_s not in uniq_lst:
+                    res.append((numbers[i], numbers[j], numbers[k]))
+                    uniq_lst.add(tmp_s)
+                elif tmp < 0:
+                    j += 1
+                else:
+                    k -= 1
+        return res
+```
+
+### 两数和_小于或等于目标值
+
+[两数和-小于或等于目标值](https://www.lintcode.com/problem/two-sum-less-than-or-equal-to-target/leaderboard)<br>
+```python
+class Solution:
+    """
+    @param nums: an array of integer
+    @param target: an integer
+    @return: an integer
+    """
+    def twoSum5(self, nums, target):
+        # write your code here
+        if not nums or len(nums) <= 1:
+            return 0
+        nums.sort()
+        res = 0
+        i = 0
+        j = len(nums) - 1
+        while i < j:
+            if nums[i] + nums[j] <= target:
+                res += (j - i)
+                i += 1
+            else:
+                j -= 1
+        return res
+```
+
+### 最接近的三数之和
+
+[最接近的三数之和](https://www.lintcode.com/problem/3sum-closest/description)<br>
+```python
+
+```
