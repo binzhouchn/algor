@@ -166,6 +166,7 @@ Array<br>
  - [交错正负数](#交错正负数)
  - [字符大小写排序](#字符大小写排序)
  - [两数之和](#两数之和)
+ - [两数之和 - 不同组成](#两数之和_不同组成)
 
 **chapter_8 数据结构(Data Structure)**
 
@@ -2982,6 +2983,36 @@ class Solution:
             else:
                 j -= 1
         return None
+```
+
+### 两数之和_不同组成
+
+[两数之和 - 不同组成](https://www.lintcode.com/problem/two-sum-unique-pairs/description)<br>
+```python
+class Solution:
+
+    def twoSum6(self, nums, target):
+        # write your code here
+        if not nums or len(nums) == 0:
+            return 0
+        nums.sort()
+        i = 0
+        j = len(nums) - 1
+        res = 0
+        uniq_lst = set()
+        while i < j:
+            if nums[i] + nums[j] == target:
+                tmp = str(nums[i]) + str(nums[j])
+                if tmp not in uniq_lst:
+                    res += 1
+                    uniq_lst.add(tmp)
+                i += 1
+                j -= 1
+            elif nums[i] + nums[j] < target:
+                i += 1
+            else:
+                j -= 1
+        return res
 ```
 
 ### 
