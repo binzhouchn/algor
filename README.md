@@ -170,6 +170,7 @@ Array<br>
  - [三数之和](#三数之和)
  - [两数和-小于或等于目标值](#两数和_小于或等于目标值)
  - [最接近的三数之和](#最接近的三数之和)
+ - [四数之和](#四数之和)
 
 **chapter_8 数据结构(Data Structure)**
 
@@ -3033,18 +3034,22 @@ class Solution:
         if not numbers or len(numbers) <= 2:
             return []
         numbers.sort()
-        uniq_lst = set()
         res = []
-        for i in range(len(numbers) - 2):
+        for i in range(len(numbers)-2):
+            if i != 0 and (numbers[i] == numbers[i-1]):
+                continue
             j = i + 1
             k = len(numbers) - 1
             while j < k:
-                tmp = numbers[i] + numbers[j] + numbers[k]
-                tmp_s = str(numbers[i]) + str(numbers[j]) + str(numbers[k])
-                if tmp == 0 and tmp_s not in uniq_lst:
+                if numbers[i] + numbers[j] + numbers[k] == 0:
                     res.append((numbers[i], numbers[j], numbers[k]))
-                    uniq_lst.add(tmp_s)
-                elif tmp < 0:
+                    j += 1
+                    k -= 1
+                    while j < k and numbers[j] == numbers[j-1]:
+                        j += 1
+                    while j < k and numbers[k] == numbers[k+1]:
+                        k -= 1
+                elif numbers[i] + numbers[j] + numbers[k] < 0:
                     j += 1
                 else:
                     k -= 1
@@ -3081,6 +3086,36 @@ class Solution:
 ### 最接近的三数之和
 
 [最接近的三数之和](https://www.lintcode.com/problem/3sum-closest/description)<br>
+```python
+class Solution:
+    """
+    @param numbers: Give an array numbers of n integer
+    @param target: An integer
+    @return: return the sum of the three integers, the sum closest target.
+    """
+    def threeSumClosest(self, numbers, target):
+        # write your code here
+        if not numbers or len(numbers) <= 2:
+            return None
+        numbers.sort()
+        res = numbers[0] + numbers[1] + numbers[2]
+        for i in range(len(numbers) - 2):
+            j = i + 1
+            k = len(numbers) - 1
+            while j < k:
+                s = numbers[i] + numbers[j] + numbers[k]
+                if abs(target - res) > abs(target - s):
+                    res = s
+                elif s < target:
+                    j += 1
+                else:
+                    k -= 1
+        return res
+```
+
+### 四数之和
+
+[四数之和](https://www.lintcode.com/problem/4sum/description)<br>
 ```python
 
 ```
