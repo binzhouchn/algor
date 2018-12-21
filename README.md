@@ -171,6 +171,7 @@ Array<br>
  - [两数和-小于或等于目标值](#两数和_小于或等于目标值)
  - [最接近的三数之和](#最接近的三数之和)
  - [四数之和](#四数之和)
+ - [两数和 - 差等于目标值](#两数和_差等于目标值)
 
 **chapter_8 数据结构(Data Structure)**
 
@@ -3152,6 +3153,40 @@ class Solution:
                     else:
                         l -= 1
         return res
+```
+
+### 两数和_差等于目标值
+
+[两数和 - 差等于目标值](https://www.lintcode.com/problem/two-sum-difference-equals-to-target/description)<br>
+```python
+# 参考别人的
+class Solution:
+    """
+    @param nums: an array of Integer
+    @param target: an integer
+    @return: [index1 + 1, index2 + 1] (index1 < index2)
+    """
+    def twoSum7(self, nums, target):
+        # Write your code here
+        nums = [(num, i) for i, num in enumerate(nums)]
+        target = abs(target)    
+        n, indexs = len(nums), []
+    
+        nums = sorted(nums, key=lambda x: x[0])
+
+        j = 0
+        for i in range(n-1):
+            if i == j:
+                j += 1
+            while j < n and nums[j][0] - nums[i][0] < target:
+                j += 1
+            if j < n and nums[j][0] - nums[i][0] == target:
+                indexs = [nums[i][1] + 1, nums[j][1] + 1]
+
+        if indexs[0] > indexs[1]:
+            indexs[0], indexs[1] = indexs[1], indexs[0]
+
+        return indexs
 ```
 
 ### 
