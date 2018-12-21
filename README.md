@@ -182,7 +182,8 @@ DFS的主要数据结构是Stack<br>
 千万不要搞反了！很体现基础知识的扎实度！<br>
 
  - [字符串解码](#字符串解码)
- - []()
+ - [用栈实现队列](#用栈实现队列)
+ - [双队列实现栈](#双队列实现栈)
 
 **chapter_9 动态规划(Dynamic Programming)**
 
@@ -3226,4 +3227,12 @@ class Solution:
 
 ---
 
-###  
+### 用栈实现队列
+
+[用栈实现队列](https://www.lintcode.com/problem/implement-queue-by-two-stacks/description)
+
+### 双队列实现栈
+
+[双队列实现栈](https://www.lintcode.com/problem/implement-stack-by-two-queues/description)
+
+### 
