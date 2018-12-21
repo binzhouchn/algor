@@ -154,6 +154,7 @@ Array<br>
  - [两个排序数组的中位数](#两个排序数组的中位数)
  - [买卖股票的最佳时机](#买卖股票的最佳时机)
  - [买卖股票的最佳时机 II](#买卖股票的最佳时机2)
+ - [最长连续序列](#最长连续序列)
  
  
 **chapter_7 两根指针(Two Pointers)**
@@ -2787,6 +2788,34 @@ class Solution:
             if diff > 0:
                 profit += diff
         return profit
+```
+
+### 最长连续序列
+
+[最长连续序列](https://www.lintcode.com/problem/longest-consecutive-sequence/description)<br>
+```python
+class Solution:
+    """
+    @param num: A list of integers
+    @return: An integer
+    """
+    def longestConsecutive(self, num):
+        # write your code here
+        if not num or len(num) == 0:
+            return 0
+        num_set = set(num)
+        res = 0
+        for i in num:
+            down = i - 1
+            while down in num_set:
+                num_set.remove(down)
+                down -= 1
+            up = i + 1
+            while up in num_set:
+                num_set.remove(up)
+                up += 1
+            res = max(res, up-down-1)
+        return res
 ```
 
 ---
