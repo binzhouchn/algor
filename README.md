@@ -176,7 +176,13 @@ Array<br>
 
 **chapter_8 数据结构(Data Structure)**
 
-待补充
+独孤九剑 —— 破箭式<br>
+BFS的主要数据结构是Queue<br>
+DFS的主要数据结构是Stack<br>
+千万不要搞反了！很体现基础知识的扎实度！<br>
+
+ - [字符串解码](#字符串解码)
+ - []()
 
 **chapter_9 动态规划(Dynamic Programming)**
 
