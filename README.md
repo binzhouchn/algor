@@ -3117,5 +3117,41 @@ class Solution:
 
 [四数之和](https://www.lintcode.com/problem/4sum/description)<br>
 ```python
-
+class Solution:
+    """
+    @param numbers: Give an array
+    @param target: An integer
+    @return: Find all unique quadruplets in the array which gives the sum of zero
+    """
+    def fourSum(self, numbers, target):
+        # write your code here
+        if not numbers or len(numbers) <= 3:
+            return []
+        numbers.sort()
+        res = []
+        for i in range(len(numbers)-3):
+            if i != 0 and numbers[i] == numbers[i-1]:
+                continue
+            for j in range(i+1, len(numbers)-2):
+                if j != i + 1 and numbers[j] == numbers[j-1]:
+                    continue
+                k = j + 1
+                l = len(numbers) - 1
+                new_target = target - numbers[i] - numbers[j]
+                while k < l:
+                    if numbers[k] + numbers[l] == new_target:
+                        res.append((numbers[i],numbers[j],numbers[k],numbers[l]))
+                        k += 1
+                        l -= 1
+                        while k < l and numbers[k] == numbers[k-1]:
+                            k += 1
+                        while k < l and numbers[l] == numbers[l+1]:
+                            l -= 1
+                    elif numbers[k] + numbers[l] < new_target:
+                        k += 1
+                    else:
+                        l -= 1
+        return res
 ```
+
+### 
