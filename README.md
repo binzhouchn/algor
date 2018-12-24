@@ -185,6 +185,9 @@ DFS的主要数据结构是Stack<br>
  - [用栈实现队列](#用栈实现队列)
  - [双队列实现栈](#双队列实现栈)
  - [重哈希](#重哈希)
+ - [LRU缓存策略](#LRU缓存策略)
+ - [乱序字符串](#乱序字符串)
+ - [堆化 Heapify](#堆化)
 
 **chapter_9 动态规划(Dynamic Programming)**
 
@@ -3268,4 +3271,100 @@ class Solution:
             node.next = ListNode(val)
 ```
 
-### 
+### LRU缓存策略
+
+[LRU缓存策略](https://www.lintcode.com/problem/lru-cache/description)<br>
+```python
+# 注：key指向LinkedList当前节点的前一个prev
+class LinkedNode:
+    def __init__(self, key=None, val=None, next=None):
+        self.key = key
+        self.val = val
+        self.next = next
+
+class LRUCache:
+    """
+    @param: capacity: An integer
+    """
+    def __init__(self, capacity):
+        # do intialization if necessary
+        self.hash = {}
+        self.head = LinkedNode()
+        self.tail = self.head
+        self.capacity = capacity
+
+    """
+    @param: key: An integer
+    @return: An integer
+    """
+    def get(self, key):
+        # write your code here
+        if key not in self.hash:
+            return -1
+        self.kick(self.hash[key])
+        return self.hash[key].next.val
+
+    """
+    @param: key: An integer
+    @param: value: An integer
+    @return: nothing
+    """
+    def set(self, key, value):
+        # write your code here
+        if key in self.hash:
+            self.kick(self.hash[key])
+            self.hash[key].next.val = value
+        else:
+            self.push_back(LinkedNode(key, value))
+            if len(self.hash) > self.capacity:
+                self.pop_front()
+    def push_back(self, node):
+        self.hash[node.key] = self.tail
+        self.tail.next = node
+        self.tail = node
+    def pop_front(self):
+        del self.hash[self.head.next.key]
+        self.head.next = self.head.next.next
+        self.hash[self.head.next.key] = self.head
+    def kick(self, prev):
+        node = prev.next
+        if node == self.tail:
+            return
+        prev.next = node.next
+        if node.next is not None:
+            self.hash[node.next.key] = prev
+            node.next = None
+        self.push_back(node)
+```
+
+### 乱序字符串
+
+[乱序字符串](https://www.lintcode.com/problem/anagrams/description)<br>
+```python
+class Solution:
+    """
+    @param strs: A list of strings
+    @return: A list of strings
+    """
+    def anagrams(self, strs):
+        # write your code here
+        d_ = {}
+        res = []
+        for s in strs:
+            s_reorder = ''.join(sorted(s))
+            if s_reorder in d_:
+                d_[s_reorder].append(s)
+            else:
+                d_[s_reorder] = [s]
+        for k, v in d_.items():
+            if len(v) > 1:
+                res += v
+        return res
+```
+
+### 堆化
+
+[堆化 Heapify](https://www.lintcode.com/problem/heapify/description)<br>
+```python
+
+```
