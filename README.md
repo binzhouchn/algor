@@ -184,6 +184,7 @@ DFS的主要数据结构是Stack<br>
  - [字符串解码](#字符串解码)
  - [用栈实现队列](#用栈实现队列)
  - [双队列实现栈](#双队列实现栈)
+ - [重哈希](#重哈希)
 
 **chapter_9 动态规划(Dynamic Programming)**
 
@@ -3235,4 +3236,9 @@ class Solution:
 
 [双队列实现栈](https://www.lintcode.com/problem/implement-stack-by-two-queues/description)
 
-### 
+### 重哈希
+
+[重哈希](https://www.lintcode.com/problem/rehashing/description)<br>
+```python
+
+```
