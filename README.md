@@ -3425,5 +3425,17 @@ class Solution:
 
 [最高频的K个单词](https://www.lintcode.com/problem/top-k-frequent-words/description)<br>
 ```python
-  
+from collections import Counter
+class Solution:
+    """
+    @param words: an array of string
+    @param k: An integer
+    @return: an array of string
+    """
+    def topKFrequentWords(self, words, k):
+        # write your code here
+        word_count = Counter(words)
+        # 这里用9999是为了反转数字，从小到大排列，和字母一直顺序。如果有个数大于9999则会有问题
+        word_count_order = sorted(word_count.items(),key=lambda x : str(9999-x[1]) + x[0])
+        return [x[0] for x in word_count_order][:k]
 ```
