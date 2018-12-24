@@ -188,6 +188,8 @@ DFS的主要数据结构是Stack<br>
  - [LRU缓存策略](#LRU缓存策略)
  - [乱序字符串](#乱序字符串)
  - [堆化 Heapify](#堆化)
+ - [丑数 II](#丑数2)
+ - [最高频的K个单词](#最高频的k个单词)
 
 **chapter_9 动态规划(Dynamic Programming)**
 
@@ -3390,4 +3392,38 @@ class Solution:
             k = father
 ```
 
-### 
+### 丑数2
+
+[丑数 II](https://www.lintcode.com/problem/ugly-number-ii/description)<br>
+```python
+class Solution:
+    """
+    @param n: An integer
+    @return: the nth prime number as description.
+    """
+    def nthUglyNumber(self, n):
+        # write your code here
+        if n <= 0:
+            return None
+        if n == 1:
+            return 1
+        uglys = [1]
+        p2, p3, p5 = 0, 0, 0
+        for i in range(1, n):
+            lastNumber = uglys[-1]
+            while uglys[p2] * 2 <= lastNumber:
+                p2 += 1
+            while uglys[p3] * 3 <= lastNumber:
+                p3 += 1
+            while uglys[p5] * 5 <= lastNumber:
+                p5 += 1
+            uglys.append(min(uglys[p2]*2, uglys[p3]*3, uglys[p5]*5))
+        return uglys[-1]
+```
+
+### 最高频的k个单词
+
+[最高频的K个单词](https://www.lintcode.com/problem/top-k-frequent-words/description)<br>
+```python
+
+```
