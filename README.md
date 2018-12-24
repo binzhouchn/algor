@@ -3240,5 +3240,32 @@ class Solution:
 
 [重哈希](https://www.lintcode.com/problem/rehashing/description)<br>
 ```python
-
+class Solution:
+    """
+    @param hashTable: A list of The first node of linked list
+    @return: A list of The first node of linked list which have twice size
+    """
+    def rehashing(self, hashTable):
+        # write your code here
+        hash_size = 2 * len(hashTable)
+        rehashTable = [None for i in range(hash_size)]
+        for item in hashTable:
+            p = item
+            while p != None:
+                self.addnode(rehashTable, p.val)
+                p = p.next
+        return rehashTable
+    def addnode(self, rehashTable, val):
+        p = val % len(rehashTable)
+        if rehashTable[p] == None:
+            rehashTable[p] = ListNode(val)
+        else:
+            self.addnodelist(rehashTable[p], val)
+    def addnodelist(self, node, val):
+        if node.next != None:
+            self.addnodelist(node.next, val)
+        else:
+            node.next = ListNode(val)
 ```
+
+### 
