@@ -3366,5 +3366,24 @@ class Solution:
 
 [堆化 Heapify](https://www.lintcode.com/problem/heapify/description)<br>
 ```python
-
+class Solution:
+    """
+    @param: A: Given an integer array
+    @return: nothing
+    """
+    def heapify(self, A):
+        # write your code here
+        if not A or len(A) == 0:
+            return
+        for i in range(len(A)):
+            self.siftup(A, i)
+    def siftup(self, A, k):
+        while k != 0:
+            father = (k - 1) // 2
+            if A[k] > A[father]:
+                break
+            A[father], A[k] = A[k], A[father]
+            k = father
 ```
+
+### 
