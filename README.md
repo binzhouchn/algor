@@ -3474,5 +3474,21 @@ class Solution:
 ```
 解决方法二：DFS: Divide Conquer<br>
 ```python
+class Solution:
+    """
+    @param triangle: a list of lists of integers
+    @return: An integer, minimum path sum
+    """
+    def minimumTotal(self, triangle):
+        # write your code here
+        self.n = len(triangle)
+        return self.divideConquer(0, 0, triangle)
+    def divideConquer(self, x, y, A):
+        if x == self.n:
+            return 0
+        return A[x][y] + min(self.divideConquer(x+1, y, A), self.divideConquer(x+1, y+1, A))
+```
+解决方法三：Divide Conquer + Memorization<br>
+```python
 
 ```
