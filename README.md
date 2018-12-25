@@ -3451,6 +3451,7 @@ class Solution:
 
 递归和动规入门题及提升<br>
 [数字三角形](https://www.lintcode.com/problem/triangle/description)<br>
+解决方法一：DFS: Traverse<br>
 ```python
 
 ```
