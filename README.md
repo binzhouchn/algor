@@ -3513,7 +3513,31 @@ class Solution:
 ```
 解决方法四：Traditional Dynamic Programming<br>
 ```python
-
+# 自顶向下
+class Solution:
+    """
+    @param triangle: a list of lists of integers
+    @return: An integer, minimum path sum
+    """
+    def minimumTotal(self, triangle):
+        # write your code here
+        if not triangle or len(triangle) == 0:
+            return 0
+        n = len(triangle)
+        f = [[0]*len(x) for x in triangle]
+        # 初始化，起点
+        f[0][0] = triangle[0][0]
+        # 初始化三角形的左边和右边
+        for i in range(1, n):
+            f[i][0] = f[i-1][0] + triangle[i][0]
+            f[i][i] = f[i-1][i-1] + triangle[i][i]
+        # top down
+        for i in range(1, n):
+            for j in range(1, i):
+                f[i][j] = min(f[i-1][j], f[i-1][j-1]) + triangle[i][j]
+        return min(f[n-1])
 ```
+
+### 
 
 
