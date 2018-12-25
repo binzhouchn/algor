@@ -207,6 +207,7 @@ DFS的主要数据结构是Stack<br>
 独孤九剑 - 破气式<br>
 初始化一个二维的动态规划时就去初始化第0行和第0列<br>
  - [不同的路径 unique paths](#不同的路径)
+ - [爬楼梯](#爬楼梯)
  
 ---
 
@@ -3599,4 +3600,9 @@ class Solution:
         return f[m-1][n-1]
 ```
 
-### 
+### 爬楼梯
+
+[爬楼梯](https://www.lintcode.com/problem/climbing-stairs/description)<br>
+```python
+
+```
