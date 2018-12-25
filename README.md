@@ -3453,5 +3453,26 @@ class Solution:
 [数字三角形](https://www.lintcode.com/problem/triangle/description)<br>
 解决方法一：DFS: Traverse<br>
 ```python
+class Solution:
+    """
+    @param triangle: a list of lists of integers
+    @return: An integer, minimum path sum
+    """
+    def minimumTotal(self, triangle):
+        # write your code here
+        self.n = len(triangle)
+        self.res = sys.maxsize
+        self.traverse(0, 0, 0, triangle)
+        return self.res
+    def traverse(self, x, y, sum_, A):
+        if x == self.n:
+            if sum_ < self.res:
+                self.res = sum_
+            return
+        self.traverse(x + 1, y, sum_ + A[x][y], A)
+        self.traverse(x + 1, y + 1, sum_ + A[x][y], A)
+```
+解决方法二：DFS: Divide Conquer<br>
+```python
 
 ```
