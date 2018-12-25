@@ -204,6 +204,10 @@ DFS的主要数据结构是Stack<br>
 3、统计方案个数
  - [最小路径和](#最小路径和)
 
+独孤九剑 - 破气式<br>
+初始化一个二维的动态规划时就去初始化第0行和第0列<br>
+ - [不同的路径 unique paths](#不同的路径)
+ 
 ---
 
 ### 二分查找
@@ -3569,4 +3573,9 @@ class Solution:
         return f[m-1][n-1]
 ```
 
-### 
+### 不同的路径
+
+[不同的路径](https://www.lintcode.com/problem/unique-paths/description)<br>
+```python
+
+```
