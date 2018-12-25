@@ -3447,4 +3447,10 @@ class Solution:
 
 ---
 
-### 
+### 数字三角形
+
+递归和动规入门题及提升<br>
+[数字三角形](https://www.lintcode.com/problem/triangle/description)<br>
+```python
+
+```
