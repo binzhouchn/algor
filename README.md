@@ -3541,4 +3541,31 @@ class Solution:
 
 ### 最小路径和
 
+[最小路径和](https://www.lintcode.com/problem/minimum-path-sum/description)<br>
+```python
+class Solution:
+    """
+    @param grid: a list of lists of integers
+    @return: An integer, minimizes the sum of all numbers along its path
+    """
+    def minPathSum(self, grid):
+        # write your code here
+        if not grid or len(grid) == 0:
+            return 0
+        m = len(grid)
+        n = len(grid[0])
+        # 初始化，起点
+        f = [[0]*n for i in range(m)] # 这里初始化要注意，必须用这种方式，不能用[[0]*n]*m
+        f[0][0] = grid[0][0]
+        # 初始化，边界
+        for j in range(1, n):
+            f[0][j] = f[0][j-1] + grid[0][j]
+        for i in range(1, m):
+            f[i][0] = f[i-1][0] + grid[i][0]
+        # top down
+        for i in range(1, m):
+            for j in range(1, n):
+                f[i][j] = min(f[i-1][j], f[i][j-1]) + grid[i][j]
+        return f[m-1][n-1]
+```
 
