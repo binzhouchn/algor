@@ -218,6 +218,10 @@ DFS的主要数据结构是Stack<br>
  - [最大整除子集](#最大整除子集)
  - [青蛙跳](#青蛙跳)
  
+字符型动态规划<br>
+一般有N个字符，就开N+1个位置的数组；第0个位置单独流出来作初始化
+ - [单词拆分 I word break](单词拆分)
+ 
 ---
 
 ### 二分查找
@@ -3810,4 +3814,9 @@ class Solution:
         return len(f[stones[-1]]) > 0
 ```
 
-### 
+### 单词拆分
+
+[单词拆分 I](https://www.lintcode.com/problem/word-break/description)<br>
+```python
+
+```
