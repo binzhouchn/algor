@@ -3717,5 +3717,35 @@ class Solution:
 
 [完美平方](https://www.lintcode.com/problem/perfect-squares/description)<br>
 ```python
+class Solution:
+    """
+    @param n: a positive integer
+    @return: An integer
+    """
+    def numSquares(self, n):
+        # write your code here
+        if n <= 0:
+            return 0
+        f = [sys.maxsize] * (n+1)
+        # 初始化，起点
+        f[0] = 0
+        # 初始化，边界
+        i = 1
+        while i * i <= n:
+            f[i*i] = 1
+            i += 1
+        # top down
+        for i in range(n+1):
+            j = 1
+            while j * j < n:
+                f[i] = min(f[i], f[i-j*j]+1)
+                j += 1
+        return f[n]
+```
+
+### 最大整除子集
+
+[最大整除子集](https://www.lintcode.com/problem/largest-divisible-subset/description)<br>
+```python
 
 ```
