@@ -216,6 +216,7 @@ DFS的主要数据结构是Stack<br>
  - [最长上升子序列](#最长上升子序列)
  - [完美平方](#完美平方)
  - [最大整除子集](#最大整除子集)
+ - [青蛙跳](#青蛙跳)
  
 ---
 
@@ -3776,6 +3777,37 @@ class Solution:
                 res.append(nums[i])
                 max_val = nums[i]
         return res
+```
+
+### 青蛙跳
+
+[青蛙跳](https://www.lintcode.com/problem/frog-jump/description)<br>
+```python
+class Solution:
+    """
+    @param stones: a list of stones' positions in sorted ascending order
+    @return: true if the frog is able to cross the river or false
+    """
+    def canCross(self, stones):
+        # write your code here
+        if not stones or len(stones) == 0:
+            return True
+        f = {}
+        for stone in stones:
+            f[stone] = set([])
+        # 初始化，起点
+        f[0].add(0)
+        # 初始化，边界
+        # top down
+        for stone in stones:
+            for k in f[stone]:
+                if k - 1 > 0 and stone + k - 1 in f:
+                    f[stone + k - 1].add(k - 1)
+                if stone + k in f:
+                    f[stone + k].add(k)
+                if stone + k + 1 in f:
+                    f[stone + k + 1].add(k + 1)
+        return len(f[stones[-1]]) > 0
 ```
 
 ### 
