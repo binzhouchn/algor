@@ -208,6 +208,8 @@ DFS的主要数据结构是Stack<br>
 初始化一个二维的动态规划时就去初始化第0行和第0列<br>
  - [不同的路径 unique paths](#不同的路径)
  - [爬楼梯](#爬楼梯)
+ - [跳跃游戏](#跳跃游戏)
+ - [跳跃游戏 II](#跳跃游戏2)
  
 ---
 
@@ -3603,6 +3605,30 @@ class Solution:
 ### 爬楼梯
 
 [爬楼梯](https://www.lintcode.com/problem/climbing-stairs/description)<br>
+```python
+class Solution:
+    """
+    @param n: An integer
+    @return: An integer
+    """
+    def climbStairs(self, n):
+        # write your code here
+        if n <= 0:
+            return 0
+        f = [0] * (n+1)
+        # 初始化，起点
+        f[0] = 1
+        # 初始化，边界
+        f[1] = 1
+        # top down
+        for i in range(2, n+1):
+            f[i] = f[i-2] + f[i-1]
+        return f[n]
+```
+
+### 跳跃游戏
+
+[跳跃游戏](https://www.lintcode.com/problem/jump-game/description)<br>
 ```python
 
 ```
