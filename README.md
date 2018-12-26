@@ -3715,4 +3715,7 @@ class Solution:
 
 ### 完美平方
 
-[完美平方]()<br>
+[完美平方](https://www.lintcode.com/problem/perfect-squares/description)<br>
+```python
+
+```
