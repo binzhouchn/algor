@@ -3737,7 +3737,7 @@ class Solution:
         # top down
         for i in range(n+1):
             j = 1
-            while j * j < n:
+            while j * j <= i:
                 f[i] = min(f[i], f[i-j*j]+1)
                 j += 1
         return f[n]
