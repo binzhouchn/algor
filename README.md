@@ -3747,5 +3747,35 @@ class Solution:
 
 [最大整除子集](https://www.lintcode.com/problem/largest-divisible-subset/description)<br>
 ```python
-
+class Solution:
+    """
+    @param: nums: a set of distinct positive integers
+    @return: the largest subset 
+    """
+    def largestDivisibleSubset(self, nums):
+        # write your code here
+        if not nums or len(nums) == 0:
+            return []
+        nums.sort()
+        n = len(nums)
+        f = [1] * n
+        # 初始化，起点
+        f[0] = 1
+        # 初始化，边界
+        # top down
+        for i in range(1, n):
+            for j in range(0, i):
+                if nums[i] % nums[j] == 0:
+                    f[i] = max(f[i], f[j] + 1)
+        # 组装答案
+        max_val_idx = f.index(max(f))
+        max_val = nums[max_val_idx]
+        res = [max_val]
+        for i in range(max_val_idx-1, -1, -1):
+            if max_val % nums[i] == 0:
+                res.append(nums[i])
+                max_val = nums[i]
+        return res
 ```
+
+### 
