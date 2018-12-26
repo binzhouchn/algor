@@ -3630,5 +3630,53 @@ class Solution:
 
 [跳跃游戏](https://www.lintcode.com/problem/jump-game/description)<br>
 ```python
-
+class Solution:
+    """
+    @param A: A list of integers
+    @return: A boolean
+    """
+    def canJump(self, A):
+        # write your code here
+        if not A or len(A) == 0:
+            return True
+        n = len(A)
+        can = [False] * len(A)
+        # 初始化，起点
+        can[0] = True
+        # 初始化，边界
+        # top down
+        for i in range(1, n):
+            for j in range(0, i):
+                if can[j] and (j + A[j] >= i):
+                    can[i] = True
+                    break
+        return can[n-1]
 ```
+
+### 跳跃游戏2
+
+[跳跃游戏 II](https://www.lintcode.com/problem/jump-game-ii/description)<br>
+```python
+class Solution:
+    """
+    @param A: A list of integers
+    @return: An integer
+    """
+    def jump(self, A):
+        # write your code here
+        if not A or len(A) == 0:
+            return sys.maxsize
+        n = len(A)
+        steps = [sys.maxsize] * len(A)
+        # 初始化，起点
+        steps[0] = 0
+        # 初始化，边界
+        # top down
+        for i in range(1, n):
+            for j in range(0, i):
+                if (steps[j] != sys.maxsize) and (j + A[j] >= i):
+                    steps[i] = min(steps[i], steps[j] + 1)
+        return steps[n-1]
+```
+
+###
