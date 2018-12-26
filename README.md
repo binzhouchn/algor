@@ -211,6 +211,10 @@ DFS的主要数据结构是Stack<br>
  - [跳跃游戏](#跳跃游戏)
  - [跳跃游戏 II](#跳跃游戏2)
  
+接龙型动态规划<br>
+属于"坐标型"动态规划的一种
+ - [最长上升子序列](#最长上升子序列)
+ 
 ---
 
 ### 二分查找
@@ -3679,4 +3683,9 @@ class Solution:
         return steps[n-1]
 ```
 
-###
+### 最长上升子序列
+
+[最长上升子序列](https://www.lintcode.com/problem/longest-increasing-subsequence/description)<br>
+```python
+
+```
