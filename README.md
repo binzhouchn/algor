@@ -3963,5 +3963,35 @@ class Solution:
 
 [不同的子序列](https://www.lintcode.com/problem/distinct-subsequences/description)<br>
 ```python
+class Solution:
+    """
+    @param: : A string
+    @param: : A string
+    @return: Count the number of distinct subsequences
+    """
 
+    def numDistinct(self, S, T):
+        # write your code here
+        if not S or len(S) == 0:
+            return 1
+        if not T or len(T) == 0:
+            return 1
+        n = len(S)
+        m = len(T)
+        # 初始化，起点、边界
+        f = [[0] * (m+1) for i in range(n+1)]
+        for i in range(n+1):
+            f[i][0] = 1
+        for j in range(1, m+1):
+            f[0][j] = 0 
+        # top down
+        for i in range(1, n+1):
+            for j in range(1, m+1):
+                if S[i-1] == T[j-1]:
+                    f[i][j] = f[i-1][j] + f[i-1][j-1]
+                else:
+                    f[i][j] = f[i-1][j]
+        return f[n][m]
 ```
+
+### 
