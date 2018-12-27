@@ -223,6 +223,7 @@ DFS的主要数据结构是Stack<br>
  - [单词拆分 I word break](单词拆分)
  - [分割回文串 II](#分割回文串2)
  - [最长公共子序列](#最长公共子序列)
+ - [编辑距离 Edit Distance](#编辑距离)
  
 ---
 
@@ -3920,6 +3921,40 @@ class Solution:
                 f[i+1][j+1] = max(f[i+1][j], f[i][j+1])
                 if A[i] == B[j]:
                     f[i+1][j+1] = f[i][j] + 1
+        return f[n][m]
+```
+
+### 编辑距离
+
+[编辑距离](https://www.lintcode.com/problem/edit-distance/description)<br>
+```python
+class Solution:
+    """
+    @param word1: A string
+    @param word2: A string
+    @return: The minimum number of steps.
+    """
+    def minDistance(self, word1, word2):
+        # write your code here
+        if not word1 or len(word1) == 0:
+            return len(word2)
+        if not word2 or len(word2) == 0:
+            return len(word1)
+        n = len(word1)
+        m = len(word2)
+        f = [[0] * (m+1) for i in range(n+1)]
+        # 初始化，起点、边界
+        for i in range(n+1):
+            f[i][0] = i
+        for j in range(m+1):
+            f[0][j] = j
+        # top down
+        for i in range(1, n+1):
+            for j in range(1, m+1):
+                if word1[i-1] == word2[j-1]:
+                    f[i][j] = min(f[i-1][j-1], f[i-1][j]+1, f[i][j-1]+1)
+                else:
+                    f[i][j] = min(f[i-1][j-1], f[i-1][j], f[i][j-1]) + 1
         return f[n][m]
 ```
 
