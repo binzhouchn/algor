@@ -3999,5 +3999,32 @@ class Solution:
 
 [交叉字符串](https://www.lintcode.com/problem/interleaving-string/description)<br>
 ```python
-
+class Solution:
+    """
+    @param s1: A string
+    @param s2: A string
+    @param s3: A string
+    @return: Determine whether s3 is formed by interleaving of s1 and s2
+    """
+    def isInterleave(self, s1, s2, s3):
+        # write your code here
+        if len(s1) + len(s2) != len(s3):
+            return False
+        if s1 + s2 == s3:
+            return True
+        n = len(s1)
+        m = len(s2)
+        f = [[False] * (m+1) for i in range(n+1)]
+        # 初始化，起点、边界
+        for i in range(1, n+1):
+            f[i][0] = (s1[i-1] == s3[i-1])
+        for i in range(1, m+1):
+            f[0][i] = (s2[i-1] == s3[i-1])
+        # top down
+        for i in range(1, n+1):
+            for j in range(1, m+1):
+                f[i][j] = (f[i-1][j] and s1[i-1] == s3[i+j-1]) or (f[i][j-1] and s2[j-1]== s3[i+j-1])
+        return f[n][m]
 ```
+
+###
