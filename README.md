@@ -221,6 +221,7 @@ DFS的主要数据结构是Stack<br>
 字符型动态规划<br>
 一般有N个字符，就开N+1个位置的数组；第0个位置单独流出来作初始化
  - [单词拆分 I word break](单词拆分)
+ - [分割回文串 II](#分割回文串2)
  
 ---
 
@@ -3843,6 +3844,55 @@ class Solution:
                     f[i] = True
                     break
         return f[n]
+```
+
+### 分割回文串2
+
+[分割回文串 II](https://www.lintcode.com/problem/palindrome-partitioning-ii/description)<br>
+```python
+# 九章答案
+class Solution:
+    # @param s, a string
+    # @return an integer
+    def minCut(self, s):
+        n = len(s)
+        f = []
+        p = [[False for x in range(n)] for x in range(n)]
+        #the worst case is cutting by each char
+        for i in range(n+1):
+            f.append(n - 1 - i) # the last one, f[n]=-1
+        for i in reversed(range(n)):
+            for j in range(i, n):
+                if (s[i] == s[j] and (j - i < 2 or p[i + 1][j - 1])):
+                    p[i][j] = True
+                    f[i] = min(f[i], f[j + 1] + 1)
+        return f[0]
+```
+```python
+# 参考tushar写的DP
+class Solution:
+    def minCut(self, s):
+        if not s or len(s) == 0:
+            return 0
+        n = len(s)
+        f = [[sys.maxsize]*n for i in range(n)]
+        # 初始化，起点
+        # 初始化，边界
+        for i in range(n):
+            f[i][i] = 0 # 一个字符
+        # top down 两个，三个这样循环下去
+        for j in range(1, n):
+            i = 0
+            while i + j < n:
+                if self.ispalindrome(s[i:i+j+1]):
+                    f[i][i+j] = 0
+                else:
+                    for k in range(i, i+j):
+                        f[i][i+j] = min(f[i][i+j], 1 + f[i][k] + f[k+1][i+j])
+                i += 1
+        return f[0][-1]
+    def ispalindrome(self, substring):
+        return substring == substring[::-1]
 ```
 
 ### 
