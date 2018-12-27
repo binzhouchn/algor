@@ -3915,7 +3915,7 @@ class Solution:
             return 0
         n = len(A)
         m = len(B)
-        f = [[0] * (n + 1) for i in range(m + 1)]
+        f = [[0] * (m + 1) for i in range(n + 1)]
         for i in range(n):
             for j in range(m):
                 f[i+1][j+1] = max(f[i+1][j], f[i][j+1])
