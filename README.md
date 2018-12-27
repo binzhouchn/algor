@@ -4028,4 +4028,30 @@ class Solution:
         return f[n][m]
 ```
 
+### 打劫房屋
+
+[打劫房屋](https://www.lintcode.com/problem/house-robber/description)<br>
+```python
+class Solution:
+    """
+    @param A: An array of non-negative integers
+    @return: The maximum amount of money you can rob tonight
+    """
+    def houseRobber(self, A):
+        # write your code here
+        if not A or len(A) == 0:
+            return 0
+        if len(A) <= 2:
+            return max(A)
+        n = len(A)
+        f = [0] * n
+        # 初始化，起点、边界
+        f[0] = A[0]
+        f[1] = max(A[0], A[1])
+        # top down
+        for i in range(2, n):
+            f[i] = max(f[i-1], f[i-2]+A[i])
+        return f[n-1]
+```
+
 ### 
