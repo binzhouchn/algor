@@ -224,6 +224,7 @@ DFS的主要数据结构是Stack<br>
  - [分割回文串 II](#分割回文串2)
  - [最长公共子序列](#最长公共子序列)
  - [编辑距离 Edit Distance](#编辑距离)
+ - [不同的子序列](#不同的子序列)
  
 ---
 
@@ -3958,4 +3959,9 @@ class Solution:
         return f[n][m]
 ```
 
-### 
+### 不同的子序列
+
+[不同的子序列](https://www.lintcode.com/problem/distinct-subsequences/description)<br>
+```python
+
+```
