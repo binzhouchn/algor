@@ -222,6 +222,7 @@ DFS的主要数据结构是Stack<br>
 一般有N个字符，就开N+1个位置的数组；第0个位置单独流出来作初始化
  - [单词拆分 I word break](单词拆分)
  - [分割回文串 II](#分割回文串2)
+ - [最长公共子序列](#最长公共子序列)
  
 ---
 
@@ -3893,6 +3894,33 @@ class Solution:
         return f[0][-1]
     def ispalindrome(self, substring):
         return substring == substring[::-1]
+```
+
+### 最长公共子序列
+
+[最长公共子序列](https://www.lintcode.com/problem/longest-common-subsequence/description)<br>
+```python
+class Solution:
+    """
+    @param A: A string
+    @param B: A string
+    @return: The length of longest common subsequence of A and B
+    """
+    def longestCommonSubsequence(self, A, B):
+        # write your code here
+        if not A or len(A) == 0:
+            return 0
+        if not B or len(B) == 0:
+            return 0
+        n = len(A)
+        m = len(B)
+        f = [[0] * (n + 1) for i in range(m + 1)]
+        for i in range(n):
+            for j in range(m):
+                f[i+1][j+1] = max(f[i+1][j], f[i][j+1])
+                if A[i] == B[j]:
+                    f[i+1][j+1] = f[i][j] + 1
+        return f[n][m]
 ```
 
 ### 
