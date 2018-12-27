@@ -225,6 +225,7 @@ DFS的主要数据结构是Stack<br>
  - [最长公共子序列](#最长公共子序列)
  - [编辑距离 Edit Distance](#编辑距离)
  - [不同的子序列](#不同的子序列)
+ - [交叉字符串](#交叉字符串)
  
 ---
 
@@ -3994,4 +3995,9 @@ class Solution:
         return f[n][m]
 ```
 
-### 
+### 交叉字符串
+
+[交叉字符串](https://www.lintcode.com/problem/interleaving-string/description)<br>
+```python
+
+```
