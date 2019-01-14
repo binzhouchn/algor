@@ -627,8 +627,6 @@ class Solution:
                 start = mid
             else:
                 end = mid
-        print(start)
-        print(end)
         if sum([x//end for x in L]) >= k:
             return end
         if sum([x//start for x in L]) >= k:
