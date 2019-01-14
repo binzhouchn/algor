@@ -656,26 +656,25 @@ class Solution:
             return 0
         start = max(pages)
         end = sum(pages)
-        if k == 1:
-            return end
         while start + 1 < end:
-            mid = ((end - start) >> 1) + start
-            if self.check(pages, mid) <= k:
+            mid = start + (end - start) // 2
+            if self.check(pages, k, mid) == k:
+                end = mid
+            elif self.check(pages, k, mid) < k:
                 end = mid
             else:
                 start = mid
-        if self.check(pages, start) <= k:
+        if self.check(pages, k, start) <= k:
             return start
         return end
-        
-    def check(self, pages, time_limit):
+    def check(self, pages, k, time_limit):
+        p_sum = 0
         count = 1
-        cul_pages = 0
         for p in pages:
-            if cul_pages + p > time_limit:
+            if p + p_sum > time_limit:
                 count += 1
-                cul_pages = 0
-            cul_pages += p
+                p_sum = 0
+            p_sum += p
         return count
 ```
 
