@@ -619,17 +619,14 @@ class Solution:
         start = 1
         end = max(L)
         while start + 1 < end:
-            mid = ((end - start) >> 1) + start
-            r = sum([x//mid for x in L])
-            if r == k:
-                start = mid
-            elif r > k:
+            mid = start + (end - start) // 2
+            if sum([x // mid for x in L]) >= k:
                 start = mid
             else:
                 end = mid
-        if sum([x//end for x in L]) >= k:
+        if sum([x // end for x in L]) >= k:
             return end
-        if sum([x//start for x in L]) >= k:
+        if sum([x // start for x in L]) >= k:
             return start
         return 0
 ```
