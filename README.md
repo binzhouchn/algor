@@ -2279,10 +2279,8 @@ class Solution:
         dummy.next = head
         
         head = dummy
-        while True:
+        while head:
             head = self.reverseK(head, k)
-            if not head:
-                break
         return dummy.next
     def reverseK(self, head, k):
         nk = head
