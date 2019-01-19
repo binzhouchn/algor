@@ -2230,26 +2230,26 @@ class Solution:
 ```python
 class Solution:
     """
-    定义dummy node
-    把m前一个和n后一个标记一下
-    把m和n之间的链表反转一下
-    //connect
-    return dummy.next
+    @param head: ListNode head is the head of the linked list 
+    @param m: An integer
+    @param n: An integer
+    @return: The head of the reversed ListNode
     """
     def reverseBetween(self, head, m, n):
         # write your code here
         dummy = ListNode(0)
         dummy.next = head
         head = dummy
+        
         for _ in range(m-1):
             head = head.next
         mprev = head
         mcurrent = head.next
-        for _ in range(m-1,n):
+        for _ in range(m-1, n):
             head = head.next
         ncurrent = head
         nplus = head.next
-        
+        # 翻转
         prev = None
         curt = mcurrent
         while curt != nplus:
@@ -2257,6 +2257,7 @@ class Solution:
             curt.next = prev
             prev = curt
             curt = tmp
+        # 拼接
         mprev.next = ncurrent
         mcurrent.next = nplus
         return dummy.next
