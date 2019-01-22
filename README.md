@@ -3267,7 +3267,48 @@ class Solution:
 
 ### 双队列实现栈
 
-[双队列实现栈](https://www.lintcode.com/problem/implement-stack-by-two-queues/description)
+[双队列实现栈](https://www.lintcode.com/problem/implement-stack-by-two-queues/description)<br>
+```python
+from collections import deque
+class Stack:
+    """
+    @param: x: An integer
+    @return: nothing
+    """
+    queue1 = deque([])
+    queue2 = deque([])
+    def push(self, x):
+        # write your code here
+        self.queue1.append(x)
+    """
+    @return: nothing
+    """
+    def pop(self):
+        # write your code here
+        if len(self.queue1) == 1:
+            return self.queue1.popleft()
+        if len(self.queue1) > 1:
+            while len(self.queue1) > 1:
+                self.queue2.append(self.queue1.popleft())
+            return self.queue1.popleft()
+        while len(self.queue2) > 1:
+            self.queue1.append(self.queue2.popleft())
+        return self.queue2.popleft()
+    """
+    @return: An integer
+    """
+    def top(self):
+        # write your code here
+        if len(self.queue1) >= 1:
+            return self.queue1[-1]
+        return self.queue2[-1]
+    """
+    @return: True if the stack is empty
+    """
+    def isEmpty(self):
+        # write your code here
+        return len(self.queue1) == 0 and len(self.queue2) == 0
+```
 
 ### 重哈希
 
