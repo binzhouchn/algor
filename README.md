@@ -2099,7 +2099,7 @@ class MyQueue:
         return self.stack1[-1]
     # new func
     def stack2Tostack1(self):
-        while self.stack2:
+        while len(self.stack2) > 0:
             self.stack1.append(self.stack2.pop())
 ```
 
