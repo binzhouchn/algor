@@ -2001,7 +2001,7 @@ class Solution:
 
 ### 字符串解码
 
-[字符串解码]()<br>
+[字符串解码](https://www.lintcode.com/problem/decode-string/description)<br>
 ```python
 # 递归方法
 class Solution:
@@ -3258,6 +3258,8 @@ class Solution:
 ```
 
 ---
+
+
 
 ### 用栈实现队列
 
