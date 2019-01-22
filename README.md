@@ -3259,12 +3259,6 @@ class Solution:
 
 ---
 
-
-
-### 用栈实现队列
-
-[用栈实现队列](https://www.lintcode.com/problem/implement-queue-by-two-stacks/description)
-
 ### 双队列实现栈
 
 [双队列实现栈](https://www.lintcode.com/problem/implement-stack-by-two-queues/description)<br>
