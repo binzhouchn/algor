@@ -1085,13 +1085,12 @@ class Solution:
     @param: target: An integer
     @return: all valid paths
     """
-    res = []
     def binaryTreePathSum(self, root, target):
         # write your code here
         if root is None:
             return []
-        path = []
-        self.helper(root, path, target)
+        self.res = []
+        self.helper(root, [], target)
         return self.res
     def helper(self, root, path, target):
         if root is None:
@@ -1099,9 +1098,9 @@ class Solution:
         path.append(root.val)
         if root.left is None and root.right is None:
             if sum(path) == target:
-                self.res.append(path.copy())
-        self.helper(root.left, path.copy(), target)
-        self.helper(root.right, path.copy(), target)
+                self.res.append(list(path))
+        left = self.helper(root.left, list(path), target)
+        right = self.helper(root.right, list(path), target)
 ```
 
 ### 二叉树的路径和2
