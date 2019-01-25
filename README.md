@@ -1094,13 +1094,14 @@ class Solution:
         return self.res
     def helper(self, root, path, target):
         if root is None:
-            return []
+            return
         path.append(root.val)
         if root.left is None and root.right is None:
             if sum(path) == target:
                 self.res.append(list(path))
-        left = self.helper(root.left, list(path), target)
-        right = self.helper(root.right, list(path), target)
+        self.helper(root.left, list(path), target)
+        self.helper(root.right, list(path), target)
+        path.pop()
 ```
 
 ### 二叉树的路径和2
@@ -1128,7 +1129,7 @@ class Solution:
         for i in range(l, -1, -1):
             tmp -= path[i]
             if tmp == 0:
-                self.res.append(path[i:].copy())
+                self.res.append(list(path[i:]))
         self.helper(root.left, target, path, l+1)
         self.helper(root.right, target, path, l+1)
         path.pop()
