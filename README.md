@@ -2622,7 +2622,7 @@ class Solution:
         prefix_sum = sorted(prefix_sum, key=lambda x : x[0])
         
         closest = sys.maxsize
-        res = []
+        res = [0, 0]
         for i in range(1, len(prefix_sum)):
             if closest > prefix_sum[i][0] - prefix_sum[i-1][0]:
                 closest = prefix_sum[i][0] - prefix_sum[i-1][0]
