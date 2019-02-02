@@ -3393,12 +3393,13 @@ class LRUCache:
         self.hash[self.head.next.key] = self.head
     def kick(self, prev):
         node = prev.next
-        if node == self.tail:
+        if node == self.tail: # 即node.next is None
             return
         prev.next = node.next
-        if node.next is not None:
-            self.hash[node.next.key] = prev
-            node.next = None
+        # node.next不为空，所以要置为空
+        self.hash[node.next.key] = prev
+        node.next = None
+        #############################
         self.push_back(node)
 ```
 
