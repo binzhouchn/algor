@@ -3715,7 +3715,7 @@ class Solution:
         if not A or len(A) == 0:
             return sys.maxsize
         n = len(A)
-        steps = [sys.maxsize] * len(A)
+        steps = [sys.maxsize] * n
         # 初始化，起点
         steps[0] = 0
         # 初始化，边界
