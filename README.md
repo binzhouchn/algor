@@ -3688,7 +3688,7 @@ class Solution:
         if not A or len(A) == 0:
             return True
         n = len(A)
-        can = [False] * len(A)
+        can = [False] * n
         # 初始化，起点
         can[0] = True
         # 初始化，边界
