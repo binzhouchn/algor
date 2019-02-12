@@ -1835,31 +1835,27 @@ class Solution:
 [数字组合 II](https://www.lintcode.com/problem/combination-sum-ii/description)<br>
 ```python
 class Solution:
-    """
-    @param num: Given the candidate numbers
-    @param target: Given the target number
-    @return: All the combinations that sum to target
-    """
+
     def combinationSum2(self, num, target):
         # write your code here
-        if not num:
+        if not num or len(num) == 0:
             return []
         num.sort()
         self.res = []
-        self.use = [0] * len(num)
-        self.dfs(num, target, 0, [])
+        self.use = [False] * len(num)
+        self.helper(num, target, 0, [])
         return self.res
-    def dfs(self, candidates, target, start, combination):
+    def helper(self, num, target, start, combination):
         if target == 0:
             self.res.append(list(combination))
             return
-        for i in range(start, len(candidates)):
-            if candidates[i] <= target and (i == 0 or candidates[i-1] != candidates[i] or self.use[i-1] == 1):
-                combination.append(candidates[i])
-                self.use[i] = 1
-                self.dfs(candidates, target-candidates[i], i+1, combination)
+        for i in range(start, len(num)):
+            if num[i] <= target and (i == 0 or num[i-1] != num[i] or self.use[i-1]):
+                combination.append(num[i])
+                self.use[i] = True
+                self.helper(num, target-num[i], i+1, combination)
                 combination.pop()
-                self.use[i] = 0
+                self.use[i] = False
 ```
 
 ### 分割回文串
