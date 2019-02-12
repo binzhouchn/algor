@@ -1297,15 +1297,12 @@ class Solution:
     def invertBinaryTree(self, root):
         # write your code here
         if not root:
-            return None
+            return
         self.helper(root)
     def helper(self, root):
         if not root:
             return
-        left = root.left
-        right = root.right
-        root.left = right
-        root.right = left
+        root.left, root.right = root.right, root.left
         self.helper(root.left)
         self.helper(root.right)
 ```
