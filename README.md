@@ -1779,21 +1779,26 @@ class Solution:
 [子集](https://www.lintcode.com/problem/subsets/description)<br>
 ```python
 class Solution:
-    
-    def search(self, nums, S, index):
-        if index == len(nums):
-            self.results.append(list(S))
-            return
-        
-        S.append(nums[index])
-        self.search(nums, S, index + 1)
-        S.pop()
-        self.search(nums, S, index + 1)
-        
+    """
+    @param nums: A set of numbers
+    @return: A list of lists
+    """
     def subsets(self, nums):
-        self.results = []
-        self.search(sorted(nums), [], 0)
-        return self.results
+        # write your code here
+        if not nums or len(nums) == 0:
+            return [[]]
+        self.res = []
+        nums.sort()
+        self.helper(nums, [], 0)
+        return self.res
+    def helper(self, nums, S, index):
+        if index == len(nums):
+            self.res.append(list(S))
+            return
+        S.append(nums[index])
+        self.helper(nums, S, index + 1)
+        S.pop()
+        self.helper(nums, S, index + 1)
 ```
 
 ### 数字组合
