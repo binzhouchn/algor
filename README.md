@@ -2666,9 +2666,9 @@ def merge_sort(arr):
     # 归并排序
     if len(arr) <= 1:
         return arr
-    num = len(arr) >> 1
-    left = merge_sort(arr[:num])
-    right = merge_sort(arr[num:])
+    mid = len(arr) >> 1
+    left = merge_sort(arr[:mid])
+    right = merge_sort(arr[mid:])
     return merge(left, right)
 
 def merge(left, right):
