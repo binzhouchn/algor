@@ -2666,26 +2666,26 @@ def merge_sort(arr):
     # 归并排序
     if len(arr) <= 1:
         return arr
-    mid = len(arr) >> 1
+    mid = len(arr) // 2 # or len(arr) >> 1
     left = merge_sort(arr[:mid])
     right = merge_sort(arr[mid:])
     return merge(left, right)
 
 def merge(left, right):
     i, j = 0, 0
-    result = []
+    res = []
     while i < len(left) and j < len(right):
         if left[i] <= right[j]:
-            result.append(left[i])
+            res.append(left[i])
             i += 1
         else:
-            result.append(right[j])
+            res.append(right[j])
             j += 1
-    result += left[i:]
-    result += right[j:]
+    res += left[i:]
+    res += right[j:]
     ## 左边或右边list走完了，肯定会有一方剩下的直接append就行，肯定是左或右同一组最大的几个剩下
     # result += left[i:] if len(right[j:]) == 0 else right[j:]
-    return result
+    return res
 ```
 
 ### 合并排序数组
