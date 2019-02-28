@@ -2566,15 +2566,15 @@ class Solution:
     def maxSubArray(self, nums):
         # write your code here
         if not nums:
-            return 0
-        max_res = -sys.maxsize
+            return -sys.maxsize
+        res = -sys.maxsize
         prefix_sum = 0
         min_sum = 0
         for i in nums:
             prefix_sum += i
-            max_res = max(max_res, prefix_sum - min_sum)
-            min_sum = min(prefix_sum, min_sum)
-        return max_res
+            res = max(res, prefix_sum - min_sum)
+            min_sum = min(min_sum, prefix_sum)
+        return res
 ```
 
 ### 子数组之和
