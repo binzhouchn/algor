@@ -2155,7 +2155,34 @@ class Solution:
 
 [带最小值操作的栈 方法一：一个栈push两次](https://www.lintcode.com/problem/min-stack/description)<br>
 ```python
-
+class MinStack:
+    def __init__(self):
+        # do intialization if necessary
+        self.min_val = sys.maxsize
+        self.stack = []
+    def push(self, node):
+        # write code here
+        if node < self.min_val:
+            self.min_val = node
+        self.stack.append(node)
+        self.stack.append(self.min_val)
+    def pop(self):
+        # write code here
+        self.stack.pop()
+        res = self.stack.pop()
+        if len(self.stack) == 0:
+            self.min_val = sys.maxsize
+        return res
+    def top(self):
+        # write code here
+        tmp = self.stack.pop()
+        res = self.stack[-1]
+        self.stack.append(tmp)
+        return res
+    def min(self):
+        # write code here
+        return self.stack[-1]
+# 77%时候的测试数据会通不过，还不清楚什么原因
 ```
 
 [带最小值操作的栈 方法二：min-stack](https://www.lintcode.com/problem/min-stack/description)<br>
