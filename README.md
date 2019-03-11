@@ -227,7 +227,11 @@ DFS的主要数据结构是Stack<br>
  - [不同的子序列](#不同的子序列)
  - [交叉字符串](#交叉字符串)
  - [打劫房屋](#打劫房屋)
- 
+
+**其他补充**
+
+ - [两个字符串减法(相减)](两个字符串减法)
+
 ---
 
 ### 二分查找
@@ -4117,5 +4121,52 @@ class Solution:
         return f[n-1]
 ```
 
-###
+---
 
+### 两个字符串减法
+```python
+def sub_string(s1, s2):
+    pos = True
+    # 比较长度
+    if len(s1) < len(s2):
+        pos = False
+        s1, s2 = s2, s1
+    # 比较大小，确定谁在前面
+    if len(s1) == len(s2):
+        for i in range(len(s1)):
+            if int(s1[i]) < int(s2[i]):
+                pos = False
+                s1, s2 = s2, s1
+                break
+    # s2补0
+    s2 = '0'* (len(s1) - len(s2)) + s2
+    s1 = list(s1)
+    s2 = list(s2)
+    start = len(s1) - 1
+    flag = 0
+    res = []
+    while start >= 0:
+        if int(s1[start]) - flag < int(s2[start]):
+            num = 10 + int(s1[start]) - flag - int(s2[start])
+            flag = 1
+        else:
+            num = int(s1[start]) - flag - int(s2[start])
+            flag = 0
+        res.append(str(num))
+        start -= 1
+    res = res[::-1]
+    # 把答案前面的0去掉，如果有
+    idx = 0
+    while idx < len(res):
+        if res[idx] == '0':
+            idx += 1
+        else:
+            break
+    res = res[idx:]
+    # return result
+    if not res:
+        return '0'
+    if not pos:
+        return '-' + ''.join(res)
+    return ''.join(res)
+```
