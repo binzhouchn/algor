@@ -231,6 +231,7 @@ DFS的主要数据结构是Stack<br>
 **其他补充**
 
  - [两个字符串减法(相减)](#两个字符串减法)
+ - [两个字符串乘法](#两个字符串乘法)
 
 ---
 
@@ -4170,3 +4171,61 @@ def sub_string(s1, s2):
         return '-' + ''.join(res)
     return ''.join(res)
 ```
+
+### 两个字符串乘法
+
+[两个字符串乘法](https://www.lintcode.com/problem/multiply-strings/description)<br>
+```python
+# 解法一
+class Solution:
+    """
+    @param num1: a non-negative integers
+    @param num2: a non-negative integers
+    @return: return product of num1 and num2
+    """
+    def multiply(self, num1, num2):
+        # write your code here
+        if not num1 or not num2:
+            return '0'
+        l1 = len(num1)
+        l2 = len(num2)
+        l3 = l1 + l2
+        res = [0 for i in range(l3)]
+        for i in range(l1-1, -1, -1):
+            carry = 0
+            for j in range(l2-1, -1, -1):
+                res[i+j+1] += (carry + int(num1[i])*int(num2[j]))
+                carry = res[i+j+1] // 10
+                res[i+j+1] %= 10
+            res[i] = carry
+        idx = 0
+        while idx < len(res):
+            if res[idx] == 0:
+                idx += 1
+            else:
+                break
+        res = res[idx:]
+        return '0' if not res else ''.join([str(x) for x in res])
+```
+```python
+# 解法二（简单）
+class Solution:
+    """
+    @param num1: a non-negative integers
+    @param num2: a non-negative integers
+    @return: return product of num1 and num2
+    """
+    def multiply(self, num1, num2):
+        # write your code here
+        len1, len2 = len(num1), len(num2)
+        dig1 = dig2 = 0
+        for i in range(len1):
+            dig1 = dig1 * 10 + ord(num1[i]) - ord('0')
+            
+        for i in range(len2):
+            dig2 = dig2 * 10 + ord(num2[i]) - ord('0')    
+        
+        return str(dig1*dig2)
+```
+
+
