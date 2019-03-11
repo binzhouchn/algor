@@ -2153,7 +2153,12 @@ class Solution:
 
 ### 带最小值操作的栈
 
-[带最小值操作的栈 min-stack](https://www.lintcode.com/problem/min-stack/description)<br>
+[带最小值操作的栈 方法一：一个栈push两次](https://www.lintcode.com/problem/min-stack/description)<br>
+```python
+
+```
+
+[带最小值操作的栈 方法二：min-stack](https://www.lintcode.com/problem/min-stack/description)<br>
 ```python
 class MinStack:
     
