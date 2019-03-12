@@ -1106,8 +1106,8 @@ class Solution:
         if root.left is None and root.right is None:
             if sum(path) == target:
                 self.res.append(list(path))
-        self.helper(root.left, list(path), target)
-        self.helper(root.right, list(path), target)
+        self.helper(root.left, path, target)
+        self.helper(root.right, path, target)
         path.pop()
 ```
 
