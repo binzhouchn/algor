@@ -236,6 +236,7 @@ DFS的主要数据结构是Stack<br>
  - [二叉搜索树的后序遍历序列（难）](#二叉搜索树的后序遍历序列)
  - [数组中只出现一次的数字，有两个只出现一次的数（牛客网）](#数组中只出现一次的数字)
  - [和为S的连续正数序列](#和为s的连续正数序列)
+ - [扑克牌顺子](#扑克牌顺子)
  
 ---
 
@@ -4381,4 +4382,27 @@ class Solution:
             big += 1
             curr += big
         return res
+```
+
+### 扑克牌顺子
+
+[扑克牌顺子（解答）](https://blog.csdn.net/fuxuemingzhu/article/details/79702017)<br>
+```python
+class Solution:
+    def IsContinuous(self, numbers):
+        # write code here
+        if not numbers:
+            return False
+        numbers.sort()
+        zeros = numbers.count(0)
+        gaps = 0
+        small = zeros
+        big = small + 1
+        while big < len(numbers):
+            if numbers[small] == numbers[big]:
+                return False
+            gaps += (numbers[big] - numbers[small] - 1)
+            small = big
+            big = small + 1
+        return gaps <= zeros
 ```
