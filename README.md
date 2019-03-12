@@ -233,7 +233,8 @@ DFS的主要数据结构是Stack<br>
  - [两个字符串减法(相减)](#两个字符串减法)
  - [两个字符串乘法](#两个字符串乘法)
  - [顺时针打印矩阵](#顺时针打印矩阵)
-
+ - [二叉搜索树的后序遍历序列（难）](#二叉搜索树的后序遍历序列)
+ 
 ---
 
 ### 二分查找
@@ -4255,5 +4256,27 @@ class Solution:
         return res
 ```
 
+### 二叉搜索树的后序遍历序列
 
-
+[二叉搜索树的后序遍历序列](https://www.nowcoder.com/practice/a861533d45854474ac791d90e447bafd?tpId=13&tqId=11176&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)<br>
+```python
+class Solution:
+    def VerifySquenceOfBST(self, sequence):
+        # write code here
+        if len(sequence) == 0:
+            return False
+        root = sequence[-1]
+        for i in range(len(sequence)):
+            if sequence[i] > root:
+                break
+        for j in range(i, len(sequence)):
+            if sequence[j] < root:
+                return False
+        left = True
+        if i > 0:
+            left = self.VerifySquenceOfBST(sequence[0:i])
+        right = True
+        if i < len(sequence) - 1 and left:
+            right = self.VerifySquenceOfBST(sequence[i:-1])
+        return right
+```
