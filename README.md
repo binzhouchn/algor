@@ -4332,5 +4332,51 @@ class Solution:
 ```
 ```python
 # 方法二
+class Solution:
+    # 返回[a,b] 其中ab是出现一次的两个数字
+    def FindNumsAppearOnce(self, array):
+        # write code here
+        if not array:
+            return []
+        p = 0
+        for i in array:
+            p = p ^ i
+        index = 0
+        while p & 1 == 0:
+            p >>= 1
+            index += 1
+        a, b = 0, 0
+        for i in array:
+            if self.check(i, index):
+                a ^= i
+            else:
+                b ^= i
+        return [a, b]
+    def check(self, num, index):
+        num >>= index
+        return num & 1
+```
 
+### 和为S的连续正数序列
+
+[和为S的连续正数序列（解答）](https://blog.csdn.net/fuxuemingzhu/article/details/79698467)<br>
+```python
+class Solution:
+    def FindContinuousSequence(self, tsum):
+        # write code here
+        small, big = 1, 2
+        _len = (tsum + 1) / 2
+        curr = small + big
+        res = []
+        while small < _len:
+            if curr == tsum:
+                res.append(list(range(small, big + 1)))
+            while curr > tsum and small < _len:
+                curr -= small
+                small += 1
+                if curr == tsum:
+                    res.append(list(range(small, big + 1)))
+            big += 1
+            curr += big
+        return res
 ```
