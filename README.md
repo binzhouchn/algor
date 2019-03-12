@@ -234,7 +234,7 @@ DFS的主要数据结构是Stack<br>
  - [两个字符串乘法](#两个字符串乘法)
  - [顺时针打印矩阵](#顺时针打印矩阵)
  - [二叉搜索树的后序遍历序列（难）](#二叉搜索树的后序遍历序列)
- 
+ - [数组中只出现一次的数字，有两个只出现一次的数（牛客网）](#数组中只出现一次的数字)
 ---
 
 ### 二分查找
@@ -4312,4 +4312,25 @@ class Solution:
         if i < len(sequence) - 1 and left:
             right = self.VerifySquenceOfBST(sequence[i:-1])
         return right
+```
+
+### 数组中只出现一次的数字
+
+[数组中只出现一次的数字（解答）](https://www.cnblogs.com/GF66/p/9785460.html)<br>
+```python
+# 方法一
+class Solution:
+    # 返回[a,b] 其中ab是出现一次的两个数字
+    def FindNumsAppearOnce(self, array):
+        # write code here
+        if not array:
+            return None
+        d_ = {}
+        for i in array:
+            d_[i] = 1 if i not in d_ else d_[i] + 1
+        return [x for x,c in d_.items() if c == 1]
+```
+```python
+# 方法二
+
 ```
