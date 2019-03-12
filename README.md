@@ -136,9 +136,9 @@ Linked List
  - [旋转链表](#旋转链表)
  - [带环链表](#带环链表)
  - [带环链表 II](#带环链表2)
+ - [复制带随机指针的链表](#复制带随机指针的链表)
  
 未做（高频题）：<br>
- - [复制带随机指针的链表](#复制带随机指针的链表)
  - [链表排序](#链表排序)
 
 Array<br>
@@ -2591,6 +2591,39 @@ class Solution:
             head = head.next
             slow = slow.next
         return head
+```
+
+### 复制带随机指针的链表
+
+[复制带随机指针的链表](https://www.lintcode.com/problem/copy-list-with-random-pointer/description)<br>
+```python
+class Solution:
+    # @param head: A RandomListNode
+    # @return: A RandomListNode
+    def copyRandomList(self, head):
+        # write your code here
+        if not head:
+            return None
+        nHead = RandomListNode(head.label)
+        p = head
+        q = nHead
+        d_ = {}
+        d_[p] = q
+        while p:
+            q.random = p.random
+            if p.next:
+                q.next = RandomListNode(p.next.label)
+                d_[p.next] = q.next
+            else:
+                q.next = None
+            q = q.next
+            p = p.next
+        p = nHead
+        while p:
+            if p.random:
+                p.random = d_[p.random]
+            p = p.next
+        return nHead
 ```
 
 ### 最大子数组
