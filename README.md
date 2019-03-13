@@ -238,7 +238,7 @@ DFS的主要数据结构是Stack<br>
  - [和为S的连续正数序列](#和为s的连续正数序列)
  - [扑克牌顺子](#扑克牌顺子)
  - [孩子们的游戏(圆圈中最后剩下的数)](#孩子们的游戏)
- 
+ - [正则表达式匹配](#正则表达式匹配)
 ---
 
 ### 二分查找
@@ -4475,4 +4475,12 @@ class Solution:
             return self.get_num(ll[0]) if flag == '+' else -self.get_num(ll[0])
         else:
             return 0
+```
+
+### 正则表达式匹配
+
+[正则表达式匹配](https://www.lintcode.com/problem/regular-expression-matching/description)<br>
+```python
+# 可以在油管上看tushar讲解
+
 ```
