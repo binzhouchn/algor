@@ -4428,20 +4428,19 @@ class Solution:
 # 方法一：不考虑e
 class Solution:
     def StrToInt(self, s):
-        res,mult,flag = 0,1,1
+        res,flag = 0, 1
         if not s:
             return res
         if s[0] == '-' or s[0] == '+':
             if s[0] == '-':
                 flag = -1
             s = s[1:]
-        for i in range(len(s)-1, -1, -1):
+        for i in range(len(s)):
             if '9' >= s[i] >= '0':
-                res += (ord(s[i]) - ord('0'))*mult
-                mult = mult * 10
+                res = res * 10 + (ord(s[i]) - ord('0'))
             else:
                 return 0
-        return res*flag
+        return res * flag
 ```
 ```python
 # 方法二：考虑e
