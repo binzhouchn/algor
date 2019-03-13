@@ -237,6 +237,7 @@ DFS的主要数据结构是Stack<br>
  - [数组中只出现一次的数字，有两个只出现一次的数（牛客网）](#数组中只出现一次的数字)
  - [和为S的连续正数序列](#和为s的连续正数序列)
  - [扑克牌顺子](#扑克牌顺子)
+ - [孩子们的游戏(圆圈中最后剩下的数)](#孩子们的游戏)
  
 ---
 
@@ -4405,4 +4406,19 @@ class Solution:
             small = big
             big = small + 1
         return gaps <= zeros
+```
+
+### 孩子们的游戏
+
+[孩子们的游戏（解答思路三）](https://blog.csdn.net/dawn_after_dark/article/details/81953718)<br>
+```python
+class Solution:
+    def LastRemaining_Solution(self, n, m):
+        # write code here
+        if n == 0:
+            return -1
+        s = 0
+        for i in range(2, n+1):
+            s = (s + m) % i
+        return s
 ```
