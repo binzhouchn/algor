@@ -4422,3 +4422,58 @@ class Solution:
             s = (s + m) % i
         return s
 ```
+
+### 把字符串转换成整数
+```python
+# 方法一：不考虑e
+class Solution:
+    def StrToInt(self, s):
+        res,mult,flag = 0,1,1
+        if not s:
+            return res
+        if s[0] == '-' or s[0] == '+':
+            if s[0] == '-':
+                flag = -1
+            s = s[1:]
+        for i in range(len(s)-1, -1, -1):
+            if '9' >= s[i] >= '0':
+                res += (ord(s[i]) - ord('0'))*mult
+                mult = mult * 10
+            else:
+                return 0
+        return res*flag
+```
+```python
+# 方法二：考虑e
+class Solution:
+    def get_flag(self, s):
+        if s[0] == '-':
+            return '-', s[1:]
+        elif s[0] == '+':
+            return '+', s[1:]
+        else:
+            return '+', s
+    def get_num(self, s):
+        length = len(s)
+        result = 0
+        for i in range(length):
+            result += (ord(s[i])-ord('0'))*10**(length-1-i)
+        return result
+    def StrToInt(self, s):
+        if not s or len(s) == 0:
+            return 0
+        if (s == '+') or (s == '-') or (s[0] == '-' and s[1] == '0') or (s[0] == '+' and s[1] == '0') or s[0] == '0':
+            return 0
+        for i in s:
+            if i not in list('+-123456789e'):
+                return 0
+        ll = s.split('e')
+        if len(ll) == 2:
+            flag, ll[0] = self.get_flag(ll[0])
+            return self.get_num(ll[0])*10**self.get_num(ll[1]) if flag == '+' else -self.get_num(ll[0])*10**self.get_num(ll[1])
+        elif len(ll) == 1:
+            flag, ll[0] = self.get_flag(ll[0])
+            return self.get_num(ll[0]) if flag == '+' else -self.get_num(ll[0])
+        else:
+            return 0
+```
