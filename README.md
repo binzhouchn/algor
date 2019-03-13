@@ -4482,5 +4482,37 @@ class Solution:
 [正则表达式匹配](https://www.lintcode.com/problem/regular-expression-matching/description)<br>
 ```python
 # 可以在油管上看tushar讲解
-
+class Solution:
+    """
+    @param s: A string 
+    @param p: A string includes "." and "*"
+    @return: A boolean
+    """
+    def isMatch(self, s, p):
+        # write your code here
+        if not s and not p:
+            return True
+        if not p:
+            return False
+        row = len(s)
+        col = len(p)
+        f = [[False for _ in range(col+1)] for _ in range(row+1)]
+        # 初始化起点
+        f[0][0] = True
+        # 初始化边界
+        for i in range(2, col+1):
+            if p[i-1] == '*':
+                f[0][i] = f[0][i-2]
+        # top down
+        for i in range(1, row+1):
+            for j in range(1, col+1):
+                if p[j-1] == '.' or s[i-1] == p[j-1]:
+                    f[i][j] = f[i-1][j-1]
+                elif p[j-1] == '*':
+                    f[i][j] = f[i][j-2]
+                    if p[j-2] == '.' or p[j-2] == s[i-1]:
+                        f[i][j] = f[i][j] or f[i-1][j]
+                else:
+                    f[i][j] = False
+        return f[row][col]
 ```
