@@ -239,6 +239,8 @@ DFS的主要数据结构是Stack<br>
  - [扑克牌顺子](#扑克牌顺子)
  - [孩子们的游戏(圆圈中最后剩下的数)](#孩子们的游戏)
  - [正则表达式匹配](#正则表达式匹配)
+ - [机器人的运动范围（牛客网）](#机器人的运动范围)
+ 
 ---
 
 ### 二分查找
@@ -4516,3 +4518,28 @@ class Solution:
                     f[i][j] = False
         return f[row][col]
 ```
+
+### 机器人的运动范围
+
+[机器人的运动范围（解答）](https://blog.csdn.net/jiachen0212/article/details/80316119)<br>
+```python
+class Solution:
+    def movingCount(self, threshold, rows, cols):
+        # write code here
+        matrix = [[0 for _ in range(cols)] for _ in range(rows)]
+        return self.findgrid(threshold, rows, cols, matrix, 0, 0)
+    def findgrid(self, threshold, rows, cols, matrix, i, j):
+        count = 0
+        if i < rows and j < cols and i >= 0 and j >= 0 and self.judge(threshold, i, j) and matrix[i][j] == 0:
+            matrix[i][j] = 1
+            count = 1 + self.findgrid(threshold, rows, cols, matrix, i, j + 1) + \
+            self.findgrid(threshold, rows, cols, matrix, i, j - 1) + \
+            self.findgrid(threshold, rows, cols, matrix, i + 1, j) + \
+            self.findgrid(threshold, rows, cols, matrix, i - 1, j)
+        return count
+    def judge(self, threshold, i, j):
+        if sum(map(int, list(str(i) + str(j)))) <= threshold:
+            return True
+        return False
+```
+
