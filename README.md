@@ -3941,7 +3941,7 @@ class Solution:
     """
     def wordBreak(self, s, dict):
         # write your code here
-        if not dict or len(dict) == 0:
+        if not dict:
             return len(s) == 0
         n = len(s)
         f = [False] * (n+1)
