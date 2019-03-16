@@ -3909,7 +3909,7 @@ class Solution:
     """
     def canCross(self, stones):
         # write your code here
-        if not stones or len(stones) == 0:
+        if not stones:
             return True
         f = {}
         for stone in stones:
