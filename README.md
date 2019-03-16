@@ -3934,24 +3934,19 @@ class Solution:
 [单词拆分 I](https://www.lintcode.com/problem/word-break/description)<br>
 ```python
 class Solution:
-    """
-    @param: s: A string
-    @param: dict: A dictionary of words dict
-    @return: A boolean
-    """
     def wordBreak(self, s, dict):
         # write your code here
         if not dict:
             return len(s) == 0
         n = len(s)
-        f = [False] * (n+1)
-        # 初始化，起点
+        maxlen = max([len(x) for x in dict])
+        f = [False] * (n + 1)
+        # 初始化起点
         f[0] = True
-        # 初始化，边界
+        # 初始化边界
         # top down
-        maxlength = max([len(x) for x in dict])
-        for i in range(1, n+1):
-            for j in range(1, min(i, maxlength) + 1):
+        for i in range(1, n + 1):
+            for j in range(1, min(i, maxlen) + 1):
                 if not f[i-j]:
                     continue
                 if s[i-j:i] in dict:
