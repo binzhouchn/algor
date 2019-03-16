@@ -3874,7 +3874,7 @@ class Solution:
     """
     def largestDivisibleSubset(self, nums):
         # write your code here
-        if not nums or len(nums) == 0:
+        if not nums:
             return []
         nums.sort()
         n = len(nums)
