@@ -3914,9 +3914,9 @@ class Solution:
         f = {}
         for stone in stones:
             f[stone] = set([])
-        # 初始化，起点
-        f[0].add(0)
-        # 初始化，边界
+        # 初始化起点
+        f[stones[0]].add(0)
+        # 初始化边界
         # top down
         for stone in stones:
             for k in f[stone]:
