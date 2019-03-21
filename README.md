@@ -2666,7 +2666,7 @@ class Solution:
     """
     def subarraySum(self, nums):
         # write your code here
-        if not nums or len(nums) == 0:
+        if not nums:
             return []
         use_map = {0:-1}
         prefix_sum = 0
