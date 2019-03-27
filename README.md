@@ -3109,7 +3109,7 @@ class Solution:
 
 [两数之和](https://www.lintcode.com/problem/two-sum/description)<br>
 ```python
-# 自己想的
+# 自己想的 O(nlogn)
 class Solution:
     """
     @param numbers: An array of Integer
@@ -3134,6 +3134,18 @@ class Solution:
             else:
                 j -= 1
         return None
+```
+```python
+# 简洁又快速
+class Solution:
+    def twoSum(self, numbers, target):
+        # write your code here
+        d = {}
+        for k, v in enumerate(numbers):
+            if v in d:
+                return [d[v], k]
+            else:
+                d[target-v] = k
 ```
 
 ### 两数之和_不同组成
