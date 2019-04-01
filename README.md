@@ -2157,7 +2157,7 @@ class Solution:
             curt = -1 if i == len(height) else height[i]
             while len(stack) != 0 and (curt <= height[stack[-1]]):
                 h = height[stack.pop()]
-                w = i if len(stack) == 0 else i - stack[-1] -1
+                w = i if len(stack) == 0 else i - stack[-1] - 1
                 max_res = max(max_res, h * w)
             stack.append(i)
         return max_res
