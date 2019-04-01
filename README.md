@@ -1881,7 +1881,7 @@ class Solution:
     """
     def partition(self, s):
         # write your code here
-        if not s or len(s) == 0:
+        if not s:
             return []
         self.res = []
         self.dfs(s, [])
