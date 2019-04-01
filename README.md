@@ -2582,12 +2582,12 @@ class Solution:
     """
     def detectCycle(self, head):
         # write your code here
-        if head == None or head.next == None:
+        if not head or not head.next:
             return None
         slow = head
         fast = head.next
         while fast != slow:
-            if fast == None or fast.next == None:
+            if not fast or not fast.next:
                 return None
             fast = fast.next.next
             slow = slow.next
