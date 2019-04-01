@@ -1309,9 +1309,8 @@ class Solution:
     """
     def invertBinaryTree(self, root):
         # write your code here
-        if not root:
-            return
         self.helper(root)
+        return
     def helper(self, root):
         if not root:
             return
