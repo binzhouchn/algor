@@ -241,6 +241,10 @@ DFS的主要数据结构是Stack<br>
  - [正则表达式匹配](#正则表达式匹配)
  - [机器人的运动范围（牛客网）](#机器人的运动范围)
  
+**压缩算法**
+
+ - [哈夫曼Huffman编码](#哈夫曼编码)
+ 
 ---
 
 ### 二分查找
@@ -4549,3 +4553,6 @@ class Solution:
         return False
 ```
 
+### 哈夫曼编码
+
+[详细图解哈夫曼Huffman编码树](https://blog.csdn.net/FX677588/article/details/70767446)<br>
