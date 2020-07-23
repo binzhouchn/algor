@@ -11,7 +11,6 @@ author: 周彬
 
 # 数据结构与算法(python)
 
-
 **chapter_2 二分法(Binary Search)**
 
 第一境界（二分位置 之 OOXX）
@@ -245,6 +244,9 @@ DFS的主要数据结构是Stack<br>
 
  - [哈夫曼Huffman编码](#哈夫曼编码)
  
+
+[算法动画演示(强烈推荐)](https://github.com/MisterBooo/LeetCodeAnimation)<br> 
+
 ---
 
 ### 二分查找
